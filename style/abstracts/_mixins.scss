@@ -1,0 +1,18 @@
+@mixin sm()
+{
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin md() {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin query($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
