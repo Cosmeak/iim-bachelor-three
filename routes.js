@@ -4,6 +4,7 @@ const router = express.Router()
 
 // Import controllers
 const userController = require('./src/controllers/userController')
+const menuController = require('./src/controllers/menuController')
 
 // Time logger
 router.use(function timeLog (req, res, next) {
@@ -19,5 +20,18 @@ router.get('/', (req, res, next) => {
 
 router.route('/users')
     .get(userController.index)
+
+// Menu routes
+router.route('/menu')
+    .get(menuController.index)
+    .post(menuController.store)
+
+router.route('/menu/:category')
+    .get(menuController.showByCategory)
+
+router.route('/menu/:id')
+    .get(menuController.show)
+    .put(menuController.update)
+    .path(menuController.update)
 
 module.exports = router
