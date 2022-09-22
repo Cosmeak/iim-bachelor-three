@@ -37,15 +37,20 @@ router.route('/menu/:id')
     .put(menuController.update)
     .patch(menuController.update)
 router.express.Router(), { login } = authController
-router.post("/login", authController.login, function (req, res) { });
+
+//login and token routes
+router.post("/login", authController.login, function (req, res) { 
+    res.status(200).json({ message: "login OK" })
+})
 
 router.get('/hiddenToken', verifToken, function (req, res) {
     if(!user)
-        res.status(403).send({message:"Invalid JsonWebToken"})
+        res.status(403).json({ message: "Invalid JsonWebToken" })
     if(req.user == "admin") {
-        res.status(200).send({message:"Congrats you are here"})
+        res.status(200).json({ message: "Congrats you are here" })
     } else {
-        res.status(403).send({message:"Unauthorised to log you"})
+        res.status(403).json({ message: "Unauthorised to log you" })
     }
 })
+
 module.exports = router
