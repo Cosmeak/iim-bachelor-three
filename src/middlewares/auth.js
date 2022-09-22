@@ -10,7 +10,7 @@ const verifToken = (req, res, next) => {
             })
             .exec((error, user) => {
                 if(error) {
-                    res.status(500).send({message: "error"})
+                    res.status(500).json({message: "error"})
                 } else {
                     req.user = user
                     next()
@@ -22,4 +22,5 @@ const verifToken = (req, res, next) => {
         next()
     }
 }
+
 module.exports = verifToken
