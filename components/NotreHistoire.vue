@@ -23,29 +23,46 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/abstracts/_mixins.scss";
   #histoire{
     background-color: #ECE2CF;
-    height: 80vh;
+    //height: 80vh;
+    @include md(){
+      height: auto;
+    }
     .container_histoire{
       display: flex;
       width: 90%;
       justify-content: space-between;
       align-items: center;
       margin: auto;
+      @include md(){
+        flex-direction: column;
+      }
       .container_histoire_right{
         background-image: url('../static/images/la-deco.png');
         background-position: center;
         background-size: cover;
         width: 40%;
         height: 80vh;
+        @include md(){
+          width: 100%;
+        }
       }
         .container_histoire_left{
             width: 40%;
+          @include md(){
+            width: 100%;
+            margin-bottom: 40px;
+          }
             h3{
               font-size: 48px;
               font-family: 'Kadwa', serif;
               margin-bottom: 23px;
               padding-top: 100px;
+              @include md(){
+                padding-top: 30px;
+              }
             }
             p{
               font-size: 24px;

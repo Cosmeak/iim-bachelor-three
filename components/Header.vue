@@ -1,0 +1,49 @@
+<template>
+  <div class="header">
+    <div class="container_header">
+      <div class="container_logo">
+        <img src="../static/images/junglearchlogo.png" alt="logo header">
+      </div>
+      <div class="container_links">
+        <ul>
+          <li>
+            <a href="Accueil">Accueil</a>
+            <a href="Carte">Carte</a>
+            <a href="Événements">Événements</a>
+            <a href="Contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: "Header"
+}
+</script>
+
+<style lang="scss" scoped>
+.header{
+  .container_header{
+    width: 90%;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    justify-content: space-between;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 99;
+
+    .container_links a{
+      color: white;
+      padding: 0 20px;
+      font-size: 20px;
+      font-weight: 500;
+    }
+  }
+}
+
+</style>

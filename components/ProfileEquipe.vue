@@ -36,6 +36,7 @@ export default {
   .team_membre_profile_name{
     margin-top: 25px;
     margin-bottom: 10px;
+    text-align: center;
   }
 }
 
