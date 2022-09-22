@@ -5,6 +5,8 @@ const router = express.Router()
 // Import controllers
 const userController = require('./controllers/userController')
 const menuController = require('./controllers/menuController')
+const userController = require('./src/controllers/userController')
+const authController = require("../JungleArch-api/src/controllers/authController")
 
 // Time logger
 router.use(function timeLog (req, res, next) {
@@ -33,5 +35,7 @@ router.route('/menu/:id')
     .get(menuController.show)
     .put(menuController.update)
     .patch(menuController.update)
+router.express.Router(), { login } = authController
+router.post("/login", authController.login, function (req, res) { });
 
 module.exports = router
