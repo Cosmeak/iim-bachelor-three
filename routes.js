@@ -4,7 +4,8 @@ const router = express.Router()
 
 // Import controllers
 const userController = require('./src/controllers/userController')
-const authController = require("../JungleArch-api/src/controllers/authController")
+const authController = require("./src/controllers/authController")
+const verifToken = require('./src/middlewares/auth')
 
 // Time logger
 router.use(function timeLog (req, res, next) {
@@ -24,4 +25,13 @@ router.route('/users')
 router.express.Router(), { login } = authController
 router.post("/login", authController.login, function (req, res) { });
 
+router.get('/hiddenToken', verifToken, function (req, res) {
+    if(!user)
+        res.status(403).send({message:"Invalid JsonWebToken"})
+    if(req.user == "admin") {
+        res.status(200).send({message:"Congrats you are here"})
+    } else {
+        res.status(403).send({message:"Unauthorised to log you"})
+    }
+})
 module.exports = router
