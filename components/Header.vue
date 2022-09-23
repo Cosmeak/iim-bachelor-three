@@ -26,6 +26,7 @@ export default {
 
 <style lang="scss" scoped>
 .header{
+  z-index: -999;
   .container_header{
     width: 90%;
     display: flex;
