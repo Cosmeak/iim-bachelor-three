@@ -1,9 +1,13 @@
 const moment = require('moment')
 const booking = require('../models/booking')
 
+// Read json and parse it
+const fs = require('fs')
+const TIMESLOTS_PATH = './config/timeslots.json'
+const timeslots = (JSON.parse(fs.readFileSync(TIMESLOTS_PATH))).timeslots
+
 // Set nb of seat/table available
 const table = 24
-const seat = table * 2
 
 exports.index = (req, res, next) => {
     const query = req.query
@@ -17,8 +21,41 @@ exports.index = (req, res, next) => {
         }
     })
     .then(docs => {
-        console.log(docs, gte, lte)
-        return docs
+        let unavailableDate = {}
+        docs.forEach(element => {
+            const date = element.date
+            if (unavailableDate[date]) {
+                unavailableDate[date].push(element)
+            } else {
+                unavailableDate[date] = [element]
+            }
+        })
+
+        // let availableDate = {}
+        // unavailableDate.forEach(element => {
+        //     let nb_people
+        //     element.forEach(el => {
+        //         nb_people += el.nb_people
+        //     })
+        //     const nb_table_available = table - (Math.ceil(nb_people/2))
+
+        //     if (nb_table_available) {
+        //         availableDate.push(Object.keys(element))
+        //     }
+        // })
+
+        return res.status(200)
+            .json({
+                status: 'Success',
+                data: unavailableDate
+            })
+    })
+    .catch(err => {
+        return res.status(500)
+            .json({
+                status: 'Failure',
+                error: err
+            })
     })
 }
 
