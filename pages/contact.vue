@@ -24,8 +24,10 @@
           <input type="tel" placeholder="Télephone" name="tel">
         </div>
         <div class="container_message container_input">
-          <span>Message</span>
-          <textarea cols="60" rows="15"></textarea>
+          <label for="meeting-time">Date de réservation</label>
+
+          <input type="time" id="meeting-time"
+                 name="meeting-time"  min="06:00" max="22:00">
         </div>
         <ButtonText class="button_sumbit" color='beige' text-button="Reserver"/>
       </form>
@@ -49,6 +51,7 @@ export default {
     padding-top: 200px;
     placeholder {
       margin-left: 30px;
+      margin-right: 30px;
     }
   .container_form{
     z-index: 9;
@@ -57,7 +60,8 @@ export default {
     background-color: red;
     padding: 100px 50px;
     @include md(){
-      width: 90%;
+      width: 100%;
+      padding: 50px 10px;
     }
     .form_container_name{
       display: flex;
@@ -84,6 +88,9 @@ export default {
         color: #ECE2CF;
         margin-bottom: 60px;
         text-align: center;
+        @include md(){
+          margin-bottom: 0px;
+        }
       }
     }
     form{
@@ -97,6 +104,7 @@ export default {
         height: 50px;
         border-radius: 10px;
         padding-left: 20px;
+        padding-right: 30px;
         color: black;
       }
       .button_sumbit{
