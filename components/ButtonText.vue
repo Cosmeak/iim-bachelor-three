@@ -1,13 +1,13 @@
 <template>
 <div class="container_button">
-  <NuxtLink :to="linkButton" class="button_link" :class="color" href="">{{textButton}}</NuxtLink>
+  <a class="button_link" :class="color" href="">{{textButton}}</a>
 </div>
 </template>
 
 <script>
 export default {
   name: "ButtonText",
-  props: ['textButton','color','linkButton'],
+  props: ['textButton','color',],
   data(){
     return{
     }
