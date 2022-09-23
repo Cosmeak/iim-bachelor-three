@@ -1,6 +1,7 @@
 // Define router
 const express = require('express')
 const router = express.Router()
+const cors = require('cors')
 
 // Import controllers
 const userController = require('./src/controllers/userController')
@@ -20,7 +21,7 @@ router.get('/', (req, res, next) => {
 })
 
 router.route('/users')
-    .get(userController.index)
+    .get(userController.index, cors())
 
 //login and token routes
 router.post("/login", authController.login, function (req, res) { 
@@ -36,5 +37,14 @@ router.get('/hiddenToken', verifToken, function (req, res) {
         res.status(403).json({ message: "Unauthorised to log you" })
     }
 })
+
+// router.get('/logout', function (req, res, next) {
+//     if(req.user.loggedin) {
+//         req.session.loggedin = false
+//         res.redirect('/')
+//     }else{
+//     res.redirect('/')
+//     }
+// })
 
 module.exports = router
