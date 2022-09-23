@@ -45,20 +45,20 @@ export default {
 <style lang="scss" scoped>
 @import "@/style/abstracts/_mixins.scss";
   #contact{
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.39), rgba(0, 0, 0, 0.39)), url('../static/images/background-home.jpeg');
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.60), rgba(0, 0, 0, 0.60)), url('../static/images/background-home.jpeg');
     background-size: cover;
     min-height: 100vh;
-    padding-top: 200px;
+    padding: 200px 0;
     placeholder {
       margin-left: 30px;
       margin-right: 30px;
     }
   .container_form{
     z-index: 9;
-    width: 60%;
+    width: 80%;
     margin: auto;
-    background-color: red;
-    padding: 100px 50px;
+    background-color: rgba(255, 255, 255, 0.13);
+    padding: 100px 200px;
     @include md(){
       width: 100%;
       padding: 50px 10px;
@@ -86,7 +86,6 @@ export default {
       .title_form{
         font-size: 40px;
         color: #ECE2CF;
-        margin-bottom: 60px;
         text-align: center;
         @include md(){
           margin-bottom: 0px;
