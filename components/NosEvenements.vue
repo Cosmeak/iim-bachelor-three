@@ -8,6 +8,9 @@
       <div class="container_evenements_image">
       </div>
     </div>
+    <div class="evenements_button">
+      <ButtonText color='beige' text-button="Contact - Réservation"/> 
+    </div>
   </div>
 </template>
 
@@ -45,7 +48,6 @@ export default {
       .container_evenements_text{
         background-size: cover;
         width: 60%;
-        height: 80vh;
         
         h2 {
           color: #ECE2CF;
@@ -69,6 +71,11 @@ export default {
             background-size: contain;
             background-repeat: no-repeat;
       }
+    }
+
+    .evenements_button {
+      margin: 80px;
+      text-align: center;
     }
   }
 </style>
