@@ -3,8 +3,8 @@ const express = require('express')
 const router = express.Router()
 
 // Import controllers
-const userController = require('./src/controllers/userController')
-const menuController = require('./src/controllers/menuController')
+const userController = require('./controllers/userController')
+const menuController = require('./controllers/menuController')
 
 // Time logger
 router.use(function timeLog (req, res, next) {
@@ -32,6 +32,6 @@ router.route('/menu/:category')
 router.route('/menu/:id')
     .get(menuController.show)
     .put(menuController.update)
-    .path(menuController.update)
+    .patch(menuController.update)
 
 module.exports = router

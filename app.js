@@ -1,8 +1,9 @@
 const express = require('express')
 const dotenv = require('dotenv')
 const bp = require('body-parser')
+
 require('./config/database')
-const router = require('./routes')
+const router = require('./src/routes')
 
 const app = express()
 const uri = '/api/v1/'
