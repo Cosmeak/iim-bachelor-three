@@ -18,6 +18,7 @@ export default {
 <style lang="scss" scoped>
 .container_button{
   cursor: pointer;
+  position: relative;
   .button_link{
     border:1px solid white;
     padding: 10px 30px;

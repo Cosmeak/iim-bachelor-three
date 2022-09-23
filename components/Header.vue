@@ -7,10 +7,10 @@
       <div class="container_links">
         <ul>
           <li>
-            <a href="Accueil">Accueil</a>
+            <a href="">Accueil</a>
             <a href="Carte">Carte</a>
             <a href="Événements">Événements</a>
-            <a href="Contact">Contact</a>
+            <a href="/contact">Contact</a>
           </li>
         </ul>
       </div>
@@ -31,18 +31,20 @@ export default {
     width: 90%;
     display: flex;
     align-items: center;
-    position: absolute;
+    position: fixed;
     justify-content: space-between;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    z-index: 99;
+    z-index: 999;
+
 
     .container_links a{
       color: white;
       padding: 0 20px;
       font-size: 20px;
       font-weight: 500;
+      cursor: pointer;
     }
   }
 }
