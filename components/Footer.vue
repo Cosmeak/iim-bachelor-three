@@ -17,8 +17,8 @@
             </ul>
         </div>
         <div class="footer_social">
-            <a href="https://www.facebook.com/santinifamilly/"><img src="../static/images/facebook.png"></a>
-            <a href="https://www.instagram.com/jungle_arch/"><img src="../static/images/instagram.png"></a>
+            <a target="_blank" href="https://www.facebook.com/santinifamilly/"><img src="../static/images/facebook.png"></a>
+            <a target="_blank"  href="https://www.instagram.com/jungle_arch/"><img src="../static/images/instagram.png"></a>
         </div>
         </div>
     </div>
