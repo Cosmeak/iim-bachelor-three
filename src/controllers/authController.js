@@ -27,7 +27,7 @@ exports.login = (req, res) => {
     var token = jwt.sign(
         { id: user.id },
         process.env.PRIVATE_KEY, 
-        { expiresIn: 86400 }
+        { expiresIn: 3600 }
         )
 
     //logged in
