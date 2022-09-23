@@ -7,10 +7,10 @@
       <div class="container_links">
         <ul>
           <li>
-            <a href="">Accueil</a>
-            <a href="Carte">Carte</a>
-            <a href="Événements">Événements</a>
-            <a href="/contact">Contact</a>
+            <NuxtLink to="/">Accueil</NuxtLink>
+            <NuxtLink to="/carte">Carte</NuxtLink>
+            <NuxtLink to="/evenements">Événements</NuxtLink>
+            <NuxtLink to="/contact">Contact</NuxtLink>
           </li>
         </ul>
       </div>
