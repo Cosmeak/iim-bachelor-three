@@ -1,0 +1,32 @@
+{
+  "name": "a3-nodejs-fcbouff",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "@prisma/client": "^4.4.0",
+    "body-parser": "^1.20.1",
+    "cookieparser": "^0.1.0",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0",
+    "prisma": "^4.4.0",
+    "socket.io": "^4.5.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yannisobert/A3-Nodejs-FcBouff.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yannisobert/A3-Nodejs-FcBouff/issues"
+  },
+  "homepage": "https://github.com/yannisobert/A3-Nodejs-FcBouff#readme"
+}

@@ -1,0 +1,48 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id Int @id @default(autoincrement())
+  status Boolean
+  word Word @relation(fields: [wordId], references: [id])
+  wordId Int
+  users User[]
+}
+
+model Word {
+  id Int @id @default(autoincrement())
+  civile String
+  impostor String
+  games Game[]
+}
+
+model User {
+  id Int @id @default(autoincrement())
+  game Game @relation(fields: [gameId], references: [id])
+  gameId Int
+  role Role
+  status Boolean
+  token String
+  synonymous Synonymous[]
+}
+
+enum Role {
+  impostor
+  civile
+}
+
+model Synonymous {
+  id Int @id @default(autoincrement())
+  user User @relation(fields: [userId], references: [id])
+  userId Int
+  word String
+}
