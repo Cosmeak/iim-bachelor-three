@@ -10,24 +10,24 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Game {
+model Games {
   id Int @id @default(autoincrement())
   status Boolean
-  word Word @relation(fields: [wordId], references: [id])
+  word Words @relation(fields: [wordId], references: [id])
   wordId Int
-  users User[]
+  users Users[]
 }
 
-model Word {
+model Words {
   id Int @id @default(autoincrement())
   civile String
   impostor String
-  games Game[]
+  games Games[]
 }
 
-model User {
+model Users {
   id Int @id @default(autoincrement())
-  game Game @relation(fields: [gameId], references: [id])
+  game Games @relation(fields: [gameId], references: [id])
   gameId Int
   role Role
   status Boolean
@@ -42,7 +42,7 @@ enum Role {
 
 model Synonymous {
   id Int @id @default(autoincrement())
-  user User @relation(fields: [userId], references: [id])
+  user Users @relation(fields: [userId], references: [id])
   userId Int
   word String
 }
