@@ -4,71 +4,71 @@ const prisma = new PrismaClient()
 
 const words = [
   {
-    civile: '',
-    impostor: ''
+    civile: 'Bouteille',
+    impostor: 'Gourde'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Thon',
+    impostor: 'Saumon'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Bloc-notes',
+    impostor: 'Papier'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Escalier',
+    impostor: 'Ascenseur'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Clown',
+    impostor: 'Comédien'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Escargot',
+    impostor: 'Limace'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Adidas',
+    impostor: 'Nike'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Cafétéria',
+    impostor: 'Restaurant'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Pneu',
+    impostor: 'Roue'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Chauffage',
+    impostor: 'Four'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Confucius',
+    impostor: 'Boudha'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Ail',
+    impostor: 'Echalotte'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Stevie Wonder',
+    impostor: 'Ray Charles'
   },
   {
-    civile: '',
-    impostor: ''
+    civile: 'Wasabi',
+    impostor: 'Piment'
   }
 ]
 
 const main = async () => {
-  console.log('Start seeding...')
+  console.log('🌱 Start seeding...')
   for (const word of words) {
     await prisma.words.create({
       data: word
     })
   }
-  console.log('Seeding finished.')
+  console.log('🌳 Seeding finished.')
 }
 
 main()
