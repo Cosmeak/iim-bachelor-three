@@ -10,6 +10,6 @@ form.addEventListener('submit', (event) => {
   })
     .then((res) => {
       localStorage.setItem('user', res.data)
-      window.location.href('http://localhost:5500/waitingroom.html')
+      window.location.href('http://localhost:5500/public/waitingroom.html')
     })
 })
