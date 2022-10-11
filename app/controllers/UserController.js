@@ -1,22 +1,28 @@
-exports.create = async (req, res) => {
-    // First Validate The Request
-    const { error } = validate(req.body);
-    if (error) {
-        return res.status(400).send(error.details[0].message);
-    }
+const { PrismaClient } = require('@prisma/client')
+const prisma = new PrismaClient()
 
-    // Check if this user already exisits
-    let user = await User.findOne({ email: req.body.email });
-    if (user) {
-        return res.status(400).send('That user already exisits!');
-    } else {
-        // Insert the new user if they do not exist yet
-        user = new User({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password
-        });
-        await user.save();
-        res.send(user);
+/**
+ * Create a user with a pseudo and the game id
+ * @param {*} req
+ * @param {*} res
+ */
+exports.create = async (req, res) => {
+  // find the game
+  const game = await prisma.games.findUnique({
+    where: {
+      status: 1
     }
+  })
+
+  // Create the new user who register his pseudo
+  const user = await prisma.users.create({
+    gameId: game.id,
+    pseudo: req.body.pseudo,
+    status: 1
+  })
+
+  // Response with the new user create
+  res.status(200).json({
+    data: user
+  })
 }
