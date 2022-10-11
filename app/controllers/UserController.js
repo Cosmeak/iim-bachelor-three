@@ -8,18 +8,25 @@ const prisma = new PrismaClient()
  */
 exports.create = async (req, res) => {
   // find the game
-  const game = await prisma.games.findUnique({
+  const game = await prisma.games.findFirst({
     where: {
-      status: 1
+      status: true
     }
   })
 
   // Create the new user who register his pseudo
+  console.log(req.body)
   const user = await prisma.users.create({
-    gameId: game.id,
-    pseudo: req.body.pseudo,
-    status: 1
+    data: {
+      pseudo: req.body.pseudo,
+      game: {
+        connect: { id: game.id }
+      },
+      status: true
+    }
   })
+
+  console.log(user)
 
   // Response with the new user create
   res.status(200).json({

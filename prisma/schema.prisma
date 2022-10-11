@@ -29,9 +29,10 @@ model Users {
   id Int @id @default(autoincrement())
   game Games @relation(fields: [gameId], references: [id])
   gameId Int
-  role Role
+  role Role?
   status Boolean
-  token String
+  token String?
+  pseudo String
   synonymous Synonymous[]
 }
 
