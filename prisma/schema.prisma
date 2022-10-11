@@ -13,8 +13,8 @@ datasource db {
 model Games {
   id Int @id @default(autoincrement())
   status Boolean
-  word Words @relation(fields: [wordId], references: [id])
-  wordId Int
+  word Words? @relation(fields: [wordId], references: [id])
+  wordId Int?
   users Users[]
 }
 
