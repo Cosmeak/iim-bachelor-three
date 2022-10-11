@@ -6,7 +6,8 @@ form.addEventListener('submit', (event) => {
     method: 'POST',
     body: JSON.stringify({
       pseudo: form.elements['pseudo'].value
-    })
+    }),
+    headers: { 'content-type': 'application/json' }
   })
     .then((res) => {
       localStorage.setItem('user', res.data)
