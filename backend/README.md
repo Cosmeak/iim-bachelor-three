@@ -59,14 +59,16 @@ Tu peux être Mr ou Mrs White, et dans ce cas-là, tu ne recevras aucun mot. Ton
 
 ```bash
 # install dependencies
-$ npm install
-# or
 $ yarn install
+# migrate database
+$ yarn prisma db push
+# seed database with words
+$ yarn prisma db seed
 # then just run :     
-$ npm start
-# or
-$ yarn start
+$ yarn dev
 ```
+
+
 ## Contributors
 
 - [Guillaume FINE](https://github.com/Cosmeak)
