@@ -23,7 +23,6 @@ return new class extends Migration
             $table->enum('role', [
                 'user',
                 'artist',
-                'admin',
             ])->default('user');
             $table->string('avatar')->nullable();
             $table->date('birthday')->nullable();
