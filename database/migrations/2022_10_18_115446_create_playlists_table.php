@@ -20,6 +20,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->boolean('visibility')->default(false);
             $table->foreignId('user_id')->constrained('users');
+            $table->string('cover')->nullable();
             $table->timestamps();
         });
     }

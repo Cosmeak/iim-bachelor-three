@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,7 +18,11 @@ class PlaylistFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => fake()->sentence(1),
+            'description' => fake()->randomElement([fake()->sentence(), null]),
+            'visibility' => fake()->boolean(),
+            'user_id' => User::inRandomOrder()->first()->id,
+            'cover' => null,
         ];
     }
 }
