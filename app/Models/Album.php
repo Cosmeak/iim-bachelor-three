@@ -46,4 +46,13 @@ class Album extends Model
     {
         return $this->belongsTo(User::class, 'artist', 'id');
     }
+
+    /**
+     * Return song related to the album
+     * @return void
+     */
+    public function song()
+    {
+        return $this->hasMany(Song::class, 'album_id');
+    }
 }
