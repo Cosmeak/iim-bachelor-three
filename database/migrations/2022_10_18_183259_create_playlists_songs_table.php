@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('playlists_songs', function (Blueprint $table) {
-            $table->foreignId('album_id')->constrained('albums');
+            $table->foreignId('playlist_id')->constrained('playlists');
             $table->foreignId('song_id')->constrained('songs');
         });
     }

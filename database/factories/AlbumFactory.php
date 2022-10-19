@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Album>
@@ -21,7 +22,7 @@ class AlbumFactory extends Factory
             'title' => fake()->sentence(2),
             'artist' => User::inRandomOrder()->first()->id,
             'type' => fake()->randomElement(['album', 'ep']),
-            'cover' => fake()->image('/storage/app/public/covers', 520, 520)
+            'cover' => Storage::disk('public')->put('covers', fake()->image())
         ];
     }
 }
