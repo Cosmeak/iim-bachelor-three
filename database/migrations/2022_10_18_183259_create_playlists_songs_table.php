@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('albums_songs', function (Blueprint $table) {
+        Schema::create('playlists_songs', function (Blueprint $table) {
             $table->foreignId('album_id')->constrained('albums');
             $table->foreignId('song_id')->constrained('songs');
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('albums_songs');
+        Schema::dropIfExists('playlists_songs');
     }
 };
