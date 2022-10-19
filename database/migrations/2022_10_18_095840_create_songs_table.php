@@ -21,6 +21,7 @@ return new class extends Migration
             $table->foreignId('artist')->constrained('users');
             $table->foreignId('album_id')->nullable()->constrained('albums');
             $table->string('cover');
+            $table->string('song');
             $table->timestamps();
         });
     }

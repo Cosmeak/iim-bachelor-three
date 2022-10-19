@@ -15,6 +15,7 @@ class Song extends Model
         'artist',
         'album_id',
         'cover',
+        'song',
     ];
 
     /**
