@@ -12,8 +12,13 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Nunito', ...defaultTheme.fontFamily.sans],
+                sans: ['Raleway', ...defaultTheme.fontFamily.sans],
             },
+            colors: {
+                'spotify-green': '#1DB954',
+                'spotify-white': '#FFFFFF',
+                'spotify-black': '#191414',
+            }
         },
     },
 
