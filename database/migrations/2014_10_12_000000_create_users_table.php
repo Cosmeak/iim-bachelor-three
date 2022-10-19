@@ -24,10 +24,10 @@ return new class extends Migration
                 'user',
                 'artist',
                 'admin',
-            ]);
+            ])->default('user');
             $table->string('avatar')->nullable();
-            $table->date('birthday');
-            $table->string('style');
+            $table->date('birthday')->nullable();
+            $table->string('style')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
