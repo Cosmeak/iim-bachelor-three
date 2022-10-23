@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Playlist>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
 class PlaylistFactory extends Factory
 {
@@ -20,7 +20,7 @@ class PlaylistFactory extends Factory
         return [
             'name' => fake()->sentence(1),
             'description' => fake()->randomElement([fake()->sentence(), null]),
-            'visibility' => fake()->boolean(),
+            'private' => fake()->boolean(),
             'user_id' => User::inRandomOrder()->first()->id,
             'cover' => null,
         ];

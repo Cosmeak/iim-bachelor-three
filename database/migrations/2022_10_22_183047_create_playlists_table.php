@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('playlists', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
+            $table->foreignId('user_id')->constrained('users');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->boolean('visibility')->default(false);
-            $table->foreignId('user_id')->constrained('users');
             $table->string('cover')->nullable();
+            $table->boolean('private')->default(false);
             $table->timestamps();
         });
     }

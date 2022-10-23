@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\ArtistController;
+use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\SongController;
+use App\Http\Controllers\UserController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,8 +29,19 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+
+    Route::resource('album', AlbumController::class);
+    Route::resource('artist', ArtistController::class);
+    Route::resource('playlist', PlaylistController::class);
+    Route::resource('user', UserController::class);
+    Route::resource('song', SongController::class);
+
+    Route::post('/{playlist}/{song}', [PlaylistController::class, 'addSong'])->name('playlist.add-song');
+    Route::delete('/{playlist}/{song}', [PlaylistController::class, 'removeSong'])->name('playlist.remove-song');
+});
 
 require __DIR__.'/auth.php';

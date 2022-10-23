@@ -10,48 +10,17 @@ class Album extends Model
     use HasFactory;
 
     protected $fillable = [
-        'slug',
         'title',
         'artist',
-        'type',
         'cover',
     ];
 
-    /**
-     * Auto-set values
-     * @return void
-     */
-    protected static function boot()
-    {
-        parent::boot();
-        static::creating(function ($query) {
-            $query->slug = strtolower(str_replace(' ', '-', $query->title));
-        });
-    }
-
-    /**
-     * Get the route key for the model.
-     * @return string
-     */
-    public function getRouteKeyName()
-    {
-        return 'slug';
-    }
-
-    /**
-     * Return artist of the song
-     * @return void
-     */
     public function artist()
     {
-        return $this->belongsTo(User::class, 'artist', 'id');
+        return $this->belongsTo(User::class, 'artist_id', 'id');
     }
 
-    /**
-     * Return song related to the album
-     * @return void
-     */
-    public function song()
+    public function songs()
     {
         return $this->hasMany(Song::class, 'album_id');
     }

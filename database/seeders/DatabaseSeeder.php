@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\Album;
 use App\Models\Playlist;
 use App\Models\Song;
@@ -34,7 +33,7 @@ class DatabaseSeeder extends Seeder
         Song::truncate();
         Playlist::truncate();
         DB::table('friends')->truncate();
-        DB::table('collaborators')->truncate();
+        DB::table('playlist_collaborators')->truncate();
         DB::table('playlists_songs')->truncate();
 
         // Seed tables

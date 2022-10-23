@@ -9,15 +9,20 @@ class Playlist extends Model
 {
     use HasFactory;
 
-    /**
-     * The attributes that are mass assignable.
-     * @var array
-     */
     protected $fillable = [
-        'slug',
         'name',
         'description',
-        'visibility',
+        'private',
         'user_id',
     ];
+
+    public function songs()
+    {
+        return $this->belongsToMany(Song::class, 'playlists_songs');
+    }
+
+    public function collaborators()
+    {
+        return $this->belongsToMany(User::class, 'playlist_collaborators', 'playlist_id', 'user_id');
+    }
 }

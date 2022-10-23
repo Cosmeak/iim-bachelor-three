@@ -14,16 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('albums', function (Blueprint $table) {
-            $table->id();
-            $table->string('slug');
-            $table->string('title');
-            $table->foreignId('artist')->constrained('users');
-            $table->enum('type', [
-                'album',
-                'ep',
-            ]);
-            $table->string('cover');
-            $table->timestamps();
+                $table->id();
+                $table->string('title');
+                $table->foreignId('artist_id')->constrained('users', );
+                $table->string('cover');
+                $table->timestamps();
         });
     }
 
