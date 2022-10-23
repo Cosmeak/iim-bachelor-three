@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('slug');
             $table->string('name');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
@@ -24,9 +23,8 @@ return new class extends Migration
                 'user',
                 'artist',
             ])->default('user');
-            $table->string('avatar')->nullable();
-            $table->date('birthday')->nullable();
-            $table->string('style')->nullable();
+            $table->date('birthdate')->nullable();
+            $table->string('music_style')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

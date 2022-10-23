@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Storage;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Album>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
  */
 class AlbumFactory extends Factory
 {
@@ -20,9 +20,8 @@ class AlbumFactory extends Factory
     {
         return [
             'title' => fake()->sentence(2),
-            'artist' => User::inRandomOrder()->first()->id,
-            'type' => fake()->randomElement(['album', 'ep']),
-            'cover' => Storage::disk('public')->put('covers', fake()->image())
+            'artist_id' => User::where('role', 'artist')->inRandomOrder()->first()->id,
+            'cover' => 'https://picsum.photos/520/520.jpg'
         ];
     }
 }

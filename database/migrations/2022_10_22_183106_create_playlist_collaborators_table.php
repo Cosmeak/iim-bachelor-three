@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('collaborators', function (Blueprint $table) {
+        Schema::create('playlist_collaborators', function (Blueprint $table) {
             $table->foreignId('playlist_id')->constrained('playlists');
             $table->foreignId('user_id')->constrained('users');
         });
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('collaborators');
+        Schema::dropIfExists('playlist_collaborators');
     }
 };

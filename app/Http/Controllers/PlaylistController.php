@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Playlist;
+use App\Models\Song;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 
 class PlaylistController extends Controller
@@ -16,9 +16,8 @@ class PlaylistController extends Controller
      */
     public function index()
     {
-        $user = Inertia::getShared()['user'];
         return Inertia::render('Playlist/Index', [
-            'playlists' => Playlist::where('user_id', $user->id)->get(),
+            'playlists' => Playlist::where('private', false)->with('user')->get()
         ]);
     }
 
@@ -29,7 +28,9 @@ class PlaylistController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Playlist/_Form');
+        return Inertia::render('Playlist/Create', [
+            'songs' => Song::all()
+        ]);
     }
 
     /**
@@ -41,80 +42,39 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string'],
-            'cover' => ['nullable'],
+            'name' => ['required'],
+            'description' => ['nullable'],
+            'cover' => ['nullable', 'url'],
+            'private' => ['required', 'boolean']
         ]);
 
-        if ($request->cover) {
-            $cover = Storage::disk('public')->put('playlist-covers', $request->file('cover'));
-        }
+        Playlist::create(array_merge($request->all(),['user_id' => auth()->user()->id]));
 
-        $playlist = Playlist::create([
-            'name' => $request->name,
-            'cover' => $cover ?? null
-        ]);
-
-        return redirect()->route('playlist.show', $playlist->id);
+        return redirect()->route('playlist.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  Playlist $playlist
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show(Playlist $playlist)
     {
         return Inertia::render('Playlist/Show', [
-            'playlist' => $playlist->load([
-                'songs',
-                'songs.album',
-                'collaborators'
-            ]),
+            'playlist' => $playlist->load('songs', 'songs.album', 'songs.artist', 'user', 'collaborators')
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Playlist $playlist)
+    public function addSong(Playlist $playlist, Song $song)
     {
-        return Inertia::render('Playlist/_Form', [
-            'playlist' => $playlist
-        ]);
+        $playlist->songs()->attach($song->id);
+        return back();
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \IlluminateHttp\Request  $request
-     * @param  Playlist $playlist
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Playlist $playlist)
+    public function removeSong(Playlist $playlist, Song $song)
     {
-        $request->validate([
-            'name' => ['required', 'string'],
-            'cover' => ['nullable']
-        ]);
-
-        $playlist->update([
-            'name' => $request->name
-        ]);
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Playlist $playlist)
-    {
-        $playlist->delete();
-        return redirect()->route('playlist.index');
+        $playlist->songs()->detach($song->id);
+        return back();
     }
 }

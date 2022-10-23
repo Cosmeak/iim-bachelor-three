@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-
 use App\Models\Album;
 use App\Models\Playlist;
 use App\Models\Song;
@@ -34,7 +33,7 @@ class DatabaseSeeder extends Seeder
         Song::truncate();
         Playlist::truncate();
         DB::table('friends')->truncate();
-        DB::table('collaborators')->truncate();
+        DB::table('playlist_collaborators')->truncate();
         DB::table('playlists_songs')->truncate();
 
         // Seed tables
@@ -42,9 +41,11 @@ class DatabaseSeeder extends Seeder
         Album::factory(25)->create();
         Song::factory(100)->create();
 
-        $users->each(function($user) {
-            Playlist::factory(1)->create()->each(function($playlist) {
+        $users->each(function($user) use($users) {
+            $user->friends()->attach($users->where('id', '!=', $user->id)->random(3)->pluck('id'));
+            Playlist::factory(1)->create()->each(function($playlist) use($users, $user){
                 $playlist->songs()->attach(Song::inRandomOrder()->limit(5)->pluck('id'));
+                $playlist->collaborators()->attach($users->where('id', '!=', $user->id)->random()->id);
             });
         });
 
