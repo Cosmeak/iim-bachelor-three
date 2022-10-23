@@ -48,12 +48,17 @@ class User extends Authenticatable
 
     public function friends()
     {
-        return $this->belongsToMany(User::class, 'friends', 'user_id', 'friendd_id');
+        return $this->belongsToMany(User::class, 'friends', 'user_id', 'friend_id');
     }
 
     public function playlists()
     {
         return $this->hasMany(Playlist::class);
+    }
+
+    public function collaboratePlaylists()
+    {
+        return $this->belongsToMany(Playlist::class, 'playlist_collaborators', 'user_id', 'playlist_id');
     }
 
     public function albums()
@@ -63,10 +68,10 @@ class User extends Authenticatable
 
     public function songs()
     {
-        return $this->hasMany(Song::class);
+        return $this->hasMany(Song::class, 'artist_id', 'id');
     }
 
-    public function songsWithoutAlbum()
+    public function singles()
     {
         return $this->songs()->whereNull('album_id');
     }

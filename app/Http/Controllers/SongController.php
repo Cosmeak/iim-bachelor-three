@@ -16,7 +16,7 @@ class SongController extends Controller
     public function index()
     {
         return Inertia::render('Song/Index', [
-            'songs' => Song::all(),
+            'songs' => Song::all()->load('album', 'artist'),
         ]);
     }
 }

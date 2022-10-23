@@ -15,4 +15,14 @@ class Song extends Model
         'album_id',
         'cover'
     ];
+
+    public function album()
+    {
+        return $this->belongsTo(Album::class);
+    }
+
+    public function artist()
+    {
+        return $this->belongsTo(User::class, 'artist_id', 'id');
+    }
 }

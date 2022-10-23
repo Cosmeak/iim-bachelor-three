@@ -22,7 +22,7 @@ class PlaylistFactory extends Factory
             'description' => fake()->randomElement([fake()->sentence(), null]),
             'private' => fake()->boolean(),
             'user_id' => User::inRandomOrder()->first()->id,
-            'cover' => null,
+            'cover' => 'https://picsum.photos/520/520.jpg'
         ];
     }
 }

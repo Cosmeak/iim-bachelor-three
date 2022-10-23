@@ -19,11 +19,12 @@ class SongFactory extends Factory
     public function definition()
     {
         $artist = User::whereHas('albums')->inRandomOrder()->first();
+        $album = fake()->randomElement([$artist->albums->random()->id, null]);
         return [
             'title' => fake()->sentence(2),
             'artist_id' => $artist->id,
-            'album_id' => fake()->randomElement([$artist->albums->random()->id, null]),
-            'cover' => Storage::disk('public')->put('covers', fake()->image()),
+            'album_id' => $album,
+            'cover' => $album ? null : 'https://picsum.photos/520/520.jpg',
         ];
     }
 }

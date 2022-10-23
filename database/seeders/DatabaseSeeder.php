@@ -41,9 +41,11 @@ class DatabaseSeeder extends Seeder
         Album::factory(25)->create();
         Song::factory(100)->create();
 
-        $users->each(function($user) {
-            Playlist::factory(1)->create()->each(function($playlist) {
+        $users->each(function($user) use($users) {
+            $user->friends()->attach($users->where('id', '!=', $user->id)->random(3)->pluck('id'));
+            Playlist::factory(1)->create()->each(function($playlist) use($users, $user){
                 $playlist->songs()->attach(Song::inRandomOrder()->limit(5)->pluck('id'));
+                $playlist->collaborators()->attach($users->where('id', '!=', $user->id)->random()->id);
             });
         });
 

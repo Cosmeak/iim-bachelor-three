@@ -17,7 +17,7 @@ class PlaylistController extends Controller
     public function index()
     {
         return Inertia::render('Playlist/Index', [
-            'playlists' => Playlist::where('private', false)->get()
+            'playlists' => Playlist::where('private', false)->with('user')->get()
         ]);
     }
 
@@ -42,9 +42,9 @@ class PlaylistController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => ['required', 'string'],
-            'description' => ['required', 'sring'],
-            'cover' => ['nullable'],
+            'name' => ['required'],
+            'description' => ['nullable'],
+            'cover' => ['nullable', 'url'],
             'private' => ['required', 'boolean']
         ]);
 
@@ -62,7 +62,7 @@ class PlaylistController extends Controller
     public function show(Playlist $playlist)
     {
         return Inertia::render('Playlist/Show', [
-            'playlist' => $playlist->load('songs')
+            'playlist' => $playlist->load('songs', 'songs.album', 'songs.artist', 'user', 'collaborators')
         ]);
     }
 

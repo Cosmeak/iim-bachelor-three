@@ -29,7 +29,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         return Inertia::render('User/Show', [
-            'user' => $user->load('publicPlaylists')
+            'user' => $user->load('publicPlaylists', 'collaboratePlaylists')
         ]);
     }
 }

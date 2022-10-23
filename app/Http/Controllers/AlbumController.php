@@ -16,7 +16,7 @@ class AlbumController extends Controller
     public function index()
     {
         return Inertia::render('Album/Index', [
-            'albums' => Album::all(),
+            'albums' => Album::all()->load('artist'),
         ]);
     }
 
@@ -28,8 +28,8 @@ class AlbumController extends Controller
      */
     public function show(Album $album)
     {
-        return Inertia::render('User/Show', [
-            'album' => $album->load('songs')
+        return Inertia::render('Album/Show', [
+            'album' => $album->load('songs', 'artist')
         ]);
     }
 }

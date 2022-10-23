@@ -21,7 +21,7 @@ class AlbumFactory extends Factory
         return [
             'title' => fake()->sentence(2),
             'artist_id' => User::where('role', 'artist')->inRandomOrder()->first()->id,
-            'cover' => Storage::disk('public')->put('covers', fake()->image())
+            'cover' => 'https://picsum.photos/520/520.jpg'
         ];
     }
 }

@@ -5,14 +5,13 @@ import Dropdown from '@/Components/Dropdown.vue';
 import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/inertia-vue3';
 
 const showingNavigationDropdown = ref(false);
 </script>
 
 <template>
-    <div>
-        <div class="min-h-screen bg-gray-100">
+    <div class="h-full w-full">
+        <div class="min-h-screen bg-gray-100 w-full h-full">
             <nav class="bg-white border-b border-gray-100">
                 <!-- Primary Navigation Menu -->
                 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -20,15 +19,39 @@ const showingNavigationDropdown = ref(false);
                         <div class="flex">
                             <!-- Logo -->
                             <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <inertia-link :href="route('dashboard')">
                                     <ApplicationLogo class="block h-9 w-auto" />
-                                </Link>
+                                </inertia-link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                                 <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                    Accueil
+                                </NavLink>
+
+                                <NavLink :href="route('user.index')" :active="route().current().includes('user.')">
+                                    Utilisateurs
+                                </NavLink>
+
+                                <NavLink :href="route('artist.index')" :active="route().current().includes('artist.')">
+                                    Artistes
+                                </NavLink>
+
+                                <NavLink :href="route('album.index')" :active="route().current().includes('album.')">
+                                    Albums
+                                </NavLink>
+
+                                <NavLink :href="route('song.index')" :active="route().current().includes('song.')">
+                                    Musiques
+                                </NavLink>
+
+                                <NavLink :href="route('playlist.index')" :active="route().current().includes('playlist.')">
+                                    Playlists
+                                </NavLink>
+
+                                <NavLink :href="route('friend.index')" :active="route().current().includes('friend.')">
+                                    Amis
                                 </NavLink>
                             </div>
                         </div>
@@ -96,15 +119,17 @@ const showingNavigationDropdown = ref(false);
 
             <!-- Page Heading -->
             <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+                <div class="max-w-7xl mx-auto max-h-[80px] py-2 px-4 sm:px-6 lg:px-8 flex">
                     <slot name="header" />
                 </div>
             </header>
 
             <!-- Page Content -->
-            <main>
+            <main class="h-full w-full">
                 <slot />
             </main>
         </div>
     </div>
 </template>
+
+
