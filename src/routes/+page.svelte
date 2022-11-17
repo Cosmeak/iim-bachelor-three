@@ -1,3 +1,5 @@
+<svelte:head><title>Le début de l'aventure</title></svelte:head>
+
 <div class="w-full h-full flex flex-col items-center justify-center gap-12">
   <h2 class="text-red-bismark text-xl text-center w-2/3 mx-auto font-bold">Pour démarrer l'aventure cliqué sur la vidéo</h2>
   
