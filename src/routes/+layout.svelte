@@ -2,4 +2,6 @@
 import '../app.css';
 </script>
 
-<slot />
+<main class="w-screen h-screen bg-white-clay font-articula relative">
+  <slot />
+</main>
