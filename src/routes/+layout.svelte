@@ -2,7 +2,7 @@
 import '../app.css';
 </script>
 
-<main class="w-screen h-screen bg-white-clay font-articula relative pt-2">
+<main class="w-screen h-screen bg-white-clay font-articula relative p-2">
   <div class="w-full h-auto flex justify-center items-center gap-2">
     <h1 class="text-center text-2xl text-red-bismark font-bold">Vinci's Case</h1>
     <img src="./logo.png" class="w-10 h-10" alt="">
