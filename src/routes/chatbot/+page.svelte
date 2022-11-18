@@ -40,24 +40,23 @@ const next = () => {
   console.log(step)
   console.log(radioChoice)
   switch (step) {
-    case 1: 
+    case 1:
       input('Je suis là pour vous aider.')
       setTimeout(() => input('Pouvez-vous me dire où vous vous trouvez ?'), 2000)
-      setTimeout(() => output('Je ne sais pas.'), 4000)
       setTimeout(() => output('Je ne sais pas.'), 6000)
       setTimeout(() => button.classList.remove('hidden'), 6100)
       break
-    case 2: 
+    case 2:
       input('Est-ce qu’il y a un indice autour de vous que je pourrais utiliser pour vous aider ?')
       setTimeout(() => output('Je vais regarder dans les poches de ma veste si je ne trouve pas quelque chose.'), 2000)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
-    case 3: 
+    case 3:
       input('Avez-vous trouvé quelque chose ?')
       setTimeout(() => output('J’ai retrouvé mon carnet dans la poche intérieur de ma veste.'), 2000)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
-    case 4: 
+    case 4:
       input('Regardez si vous n’avez pas écrit quelque chose qui pourrait nous aider.')
       setTimeout(() => output('Je vais regarder.'), 2000)
       setTimeout(() => output('J’ai écrit : passage dans le Hub au 2ème étage direction salle 202, affiche vieux journaux.'), 4000)
@@ -65,10 +64,10 @@ const next = () => {
       setTimeout(() => output('Est-ce que cela peut vous aider ?'), 8000)
       setTimeout(() => button.classList.remove('hidden'), 8100)
       break
-    case 5: 
+    case 5:
       input('Je traverse le Hub en direction de la salle 202.')
       setTimeout(() => output('Est-ce que vous avez trouvé un indice qui vous fait penser à une affiche de vieux journaux ?'), 2000)
-      setTimeout(() => radio.classList.remove('hidden'), 2100) 
+      setTimeout(() => radio.classList.remove('hidden'), 2100)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
     case 6:
@@ -77,7 +76,7 @@ const next = () => {
         input('Il y a la moitié d’une affiche déchirée en deux.')
         setTimeout(() => output('Quelque chose doit être caché dans cette affiche déchirée.'), 2000)
         setTimeout(() => output('Est-ce que vous voyez un indice ?'), 2000)
-        setTimeout(() => radio.classList.remove('hidden'), 2100) 
+        setTimeout(() => radio.classList.remove('hidden'), 2100)
         setTimeout(() => button.classList.remove('hidden'), 2100)
         break
       } else {
@@ -85,7 +84,7 @@ const next = () => {
         input('Non pas encore.')
         setTimeout(() => output('Je ne dois pas avoir écrit ceci par hasard. Regardez si vous ne trouvez pas une affiche de vieux journaux affichée sur un mur dans le Hub.'), 6000)
         setTimeout(() => output('Vous voyez quelque chose ?'), 8000)
-        setTimeout(() => radio.classList.remove('hidden'), 6100) 
+        setTimeout(() => radio.classList.remove('hidden'), 6100)
         setTimeout(() => button.classList.remove('hidden'), 6100)
         break
       }
@@ -137,7 +136,7 @@ const next = () => {
       input('Je dois résoudre une énigme.')
       setTimeout(() => output('Vous pouvez y arriver.'), 2000)
       setTimeout(() => output(' Avez-vous pu résoudre l’énigme ?'), 8000)
-      setTimeout(() => radio.classList.remove('hidden'), 8100) 
+      setTimeout(() => radio.classList.remove('hidden'), 8100)
       setTimeout(() => button.classList.remove('hidden'), 8200)
       break
     case 11:
@@ -150,7 +149,7 @@ const next = () => {
         step--
         input('Non.')
         setTimeout(() => output('Prenez votre temps vous allez y arriver !'), 2000)
-        setTimeout(() => radio.classList.remove('hidden'), 2100) 
+        setTimeout(() => radio.classList.remove('hidden'), 2100)
         setTimeout(() => button.classList.remove('hidden'), 2200)
         break
       }
@@ -204,7 +203,7 @@ const next = () => {
       setTimeout(() => output('La base de données de l’IIM me permettra de trouver à qui elles appartiennent.'), 4000)
       setTimeout(() => button.classList.remove('hidden'), 4100)
       break
-    case 21: 
+    case 21:
       input(`<img src="./digital_print.png" class="w-12 h-12 object-contain">`)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
@@ -386,6 +385,9 @@ const next = () => {
       setTimeout(() => output('Je vous attends. Vous pouvez venir me libérer.'), 2000)
       setTimeout(() => button.classList.remove('hidden'), 2200)
       break
+    case 52:
+      window.location.replace(window.location.origin + '/win') // Redirect to win screen
+      break
   }
 }
 
@@ -400,7 +402,7 @@ onMount(() => {
 
 <div class="w-full h-5/6 px-4 pt-4">
   <div id="messages" class="flex flex-col gap-4 overflow-y-auto h-5/6"></div>
-  
+
   <div class="h-1/6 w-full flex flex-col justify-end">
     <div id="radio" class="flex flex-col gap-2 font-medium hidden">
       <label for="one">

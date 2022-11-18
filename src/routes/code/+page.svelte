@@ -25,6 +25,9 @@ const submit = () => {
 
 
 <form method="POST" class="w-full h-full flex flex-col items-center justify-center gap-8" on:submit|preventDefault={submit}>
+  <div class="w-full relative overflow-hidden pb-[56.25%] h-0 rounded-lg mb-8">
+    <iframe class="absolute left-0 top-0 border-none h-full w-full" width="1275" height="717" src="https://www.youtube.com/embed/O5rDektawHU" title="VincisCase" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
   <input type="text" name="code" id="code" class="text-center px-2 py-1 rounded-lg" placeholder="Entrer le code" value={code}>
   <button type="submit" class="text-red-bismark font-bold px-4 py-1 bg-beige-bis rounded-lg">Suivant <i class="fa-solid fa-caret-right my-auto fa-xl"></i></button>
   <div id="error"></div>
