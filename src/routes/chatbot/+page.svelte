@@ -400,10 +400,10 @@ onMount(() => {
 
 <svelte:head><title>ChatBot</title></svelte:head>
 
-<div class="w-full h-5/6 px-4 pt-4">
-  <div id="messages" class="flex flex-col gap-4 overflow-y-auto h-5/6"></div>
+<div class="w-full h-5/6 px-4 pt-4 flex flex-col gap-4">
+  <div id="messages" class="flex flex-col gap-4 overflow-y-auto h-5/6 border border-beige-bis p-2 rounded-lg shadow-inner"></div>
 
-  <div class="h-1/6 w-full flex flex-col justify-end">
+  <div class="h-1/6 w-full flex flex-col justify-end gap-2">
     <div id="radio" class="flex flex-col gap-2 font-medium hidden">
       <label for="one">
         <input type="radio" id="one" name="response" class="hidden peer" value={true} bind:group={radioChoice}>
@@ -419,6 +419,6 @@ onMount(() => {
         </div>
       </label>
     </div>
-    <button on:click={next} id="next" class="text-red-bismark font-bold px-4 py-1 bg-beige-bis rounded-lg mt-4 w-full">Suivant <i class="fa-solid fa-caret-right my-auto fa-xl"></i></button>
+    <button on:click={next} id="next" class="text-red-bismark font-bold px-4 py-1 bg-beige-bis rounded-lg w-full">Suivant <i class="fa-solid fa-caret-right my-auto fa-xl"></i></button>
   </div>
 </div>
