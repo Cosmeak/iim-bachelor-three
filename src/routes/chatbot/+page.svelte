@@ -291,9 +291,101 @@ const next = () => {
         input('407')
         setTimeout(() => output('Je pense plutôt avoir entendu le chiffre 307.'), 2000)
         setTimeout(() => output('Commencez par aller voir si un morceau de cette clé ne se trouve pas en salle 307.'), 2000)
-        setTimeout(() => button.classList.remove('hidden'), 2200)
+        setTimeout(() => output('Êtes-vous dans la salle 307 ?'), 6000);
+        setTimeout(() => button.classList.remove('hidden'), 6200)
         break
       }
+    case 35:
+      input('Oui.')
+      setTimeout(() => output('Que voyez-vous ?'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 36:
+      input('Je dois résoudre une nouvelle énigme pour pouvoir trouver un morceau de la clé.')
+      setTimeout(() => output('Avez-vous réussi ?'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 37:
+      input('Oui, j’ai trouvé un morceau de la clé !')
+      setTimeout(() => output('J’en suis sûr vous êtes sur le point de retrouver les morceaux manquants de la clé et de découvrir la vérité.'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 38:
+      input('Où pensez-vous que je dois me rendre à présent ?')
+      setTimeout(() => output('Quelque chose me revient !'), 2000)
+      setTimeout(() => output('Pour me souvenir de ce que vous aviez dit, j’ai écrit dans mon carnet que l’affiche que vous avez trouvée avant était une moitié d’affiche déchirée. '), 4000)
+      setTimeout(() => button.classList.remove('hidden'), 4200)
+      break
+    case 39:
+      input('C’est exact.')
+      setTimeout(() => output('Cela signifie que l’autre moitié de l’affiche se trouve sûrement à quelque part dans l’établissement.'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 40:
+      input('Avez-vous une idée de l’endroit où elle pourrait se trouver ?')
+      setTimeout(() => output('Allez voir dans la Mezzanine.'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 41:
+      input('Je l’ai trouvée !')
+      setTimeout(() => output('Avez-vous trouvé un nouvel indice caché ?'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 42:
+      input('Oui!')
+      setTimeout(() => input('Je dois me rendre dans la salle 301.'), 2000)
+      setTimeout(() => output('Est-ce que vous avez trouvé l’autre morceau de la clé ?'), 4000)
+      setTimeout(() => button.classList.remove('hidden'), 4200)
+      break
+    case 43:
+      input('Je dois résoudre une nouvelle énigme.')
+      setTimeout(() => output('Cela ne devrait plus être très complexe, vous êtes en train de devenir un vrai détective.'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 44:
+      input('J’ai trouvé un autre morceau de la clé !')
+      setTimeout(() => output('Regardez bien à l’endroit où vous avez trouvé le morceau de clé. Le coupable a sûrement laissé un indice derrière lui.'), 2000)
+      setTimeout(() => output('Avez-vous trouvé quelque chose ?'), 4000)
+      setTimeout(() => button.classList.remove('hidden'), 4200)
+      break
+    case 45:
+      input('Oui!')
+      setTimeout(() => input('J’ai découvert une veste.'), 2000)
+      setTimeout(() => output('Elle appartient probablement au coupable. Il a sûrement dû utiliser ma dernière invention qui permet de digitaliser tous les objets pour cacher les preuves derrière lui.'), 4000)
+      setTimeout(() => output('De quelle couleur est-elle ?'), 6000)
+      setTimeout(() => button.classList.remove('hidden'), 6200)
+      break
+    case 46:
+      input('Verte.')
+      setTimeout(() => output('Cet indice doit maintenant vous permettre de connaître le coupable.'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 47:
+      input('Effectivement, le coupable est le Professeur Portin, car il a été vu le jour de votre disparition avec une veste verte.')
+      setTimeout(() => output('A-t-il laissé un autre indice dans sa veste pour trouver le dernier bout de la clé ?'), 2000)
+      setTimeout(() => output('Un numéro de salle peut-être ?'), 4000)
+      setTimeout(() => button.classList.remove('hidden'), 4200)
+      break
+    case 48:
+      input('Effectivement, j’ai déchiffré un nouveau numéro de salle.')
+      setTimeout(() => output('Où devez-vous aller ?'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 49:
+      input('En salle 203.')
+      setTimeout(() => output('Une dernière énigme doit sûrement vous attendre là-bas.'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 50:
+      input('J’ai trouvé le dernier morceau de la clé !')
+      setTimeout(() => output('Avez-vous trouvé le numéro de la salle dans laquelle je suis enfermé ?'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
+    case 51:
+      input('Oui, elle est écrite sur la clé !')
+      setTimeout(() => output('Je vous attends. Vous pouvez venir me libérer.'), 2000)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
+      break
   }
 }
 
