@@ -259,31 +259,41 @@ const next = () => {
       break
     case 30:
       input('Il pourrait donc s’agir d’une complice et non d’un complice.')
-      setTimeout(() => input('Qu’avez-vous décrypté d’autre à travers ces messages vocaux.'), 2000)
+      setTimeout(() => output('Qu’avez-vous décrypté d’autre à travers ces messages vocaux ?'), 2000)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
     case 31:
       input('Il me semble avoir décrypté d’autres indices importants.')
-      setTimeout(() => input('Quels sont ces nouveaux indices ?'), 2000)
+      setTimeout(() => output('Quels sont ces nouveaux indices ?'), 2000)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
     case 32:
       input('Il s’agirait d’une clé qui aurait été cachée.')
-      setTimeout(() => input('Pourrait-il s’agir de la clé de la salle dans laquelle je suis enfermé ?'), 2000)
+      setTimeout(() => output('Pourrait-il s’agir de la clé de la salle dans laquelle je suis enfermé ?'), 2000)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
     case 33:
+      radio.querySelector('#radioTextOne').textContent = 307
+      radio.querySelector('#radioTextTwo').textContent = 407
+
       input('C’est une possibilité. Cependant, il semblerait que cette clé ait été cassée en trois morceaux et que l’un d’entre eux se cache dans une nouvelle salle.')
-      setTimeout(() => input('De quelle salle s’agit-il ?'), 2000)
-      setTimeout(() => button.classList.remove('hidden'), 2100)
+      setTimeout(() => output('De quelle salle s’agit-il ?'), 2000)
+      setTimeout(() => radio.classList.remove('hidden'), 2100)
+      setTimeout(() => button.classList.remove('hidden'), 2200)
       break
     case 34:
       if (radioChoice) {
-
+        input('307')
+        setTimeout(() => output('J’ai l’impression que votre intuition est juste. Une partie de cette clé dont vous parlez doit se trouver dans cette salle.'), 2000)
+        setTimeout(() => button.classList.remove('hidden'), 2200)
+        break
       } else {
-
+        input('407')
+        setTimeout(() => output('Je pense plutôt avoir entendu le chiffre 307.'), 2000)
+        setTimeout(() => output('Commencez par aller voir si un morceau de cette clé ne se trouve pas en salle 307.'), 2000)
+        setTimeout(() => button.classList.remove('hidden'), 2200)
+        break
       }
-      break
   }
 }
 
@@ -303,14 +313,14 @@ onMount(() => {
     <div id="radio" class="flex flex-col gap-2 font-medium hidden">
       <label for="one">
         <input type="radio" id="one" name="response" class="hidden peer" value={true} bind:group={radioChoice}>
-        <div class="bg-white peer-checked:bg-red-500 peer-checked:text-white px-2 py-1 rounded">
+        <div id="radioTextOne" class="bg-white peer-checked:bg-red-500 peer-checked:text-white px-2 py-1 rounded">
           Oui
         </div>
       </label>
 
       <label for="two">
         <input type="radio" id="two" name="response" class="hidden peer" value={false} bind:group={radioChoice}>
-        <div class="bg-white peer-checked:bg-red-500 peer-checked:text-white px-2 py-1 rounded">
+        <div id="radioTextTwo"  class="bg-white peer-checked:bg-red-500 peer-checked:text-white px-2 py-1 rounded">
           Non
         </div>
       </label>
