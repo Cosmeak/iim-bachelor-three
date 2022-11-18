@@ -29,7 +29,7 @@ const output = (outputString) => {
   `
 }
 
-let step = 27
+let step = 0
 let radioChoice = false
 const next = () => {
   const button = document.getElementById('next')
@@ -245,9 +245,9 @@ const next = () => {
     case 28:
       input('Envoyez-moi ce que vous avez trouvé !')
       setTimeout(() => output('Il s’agit de messages vocaux qui ont visiblement été volontairement brouillés.'), 2000)
-      setTimeout(() => output(`<audio controls><source src="./message-vocal-01.mpeg" type="audio/mpeg"></audio>`), 4000)
-      setTimeout(() => output(`<audio controls><source src="./message-vocal-02.mpeg" type="audio/mpeg"></audio>`), 4000)
-      setTimeout(() => output(`<audio controls><source src="./message-vocal-03.mp3" type="audio/mpeg"></audio>`), 4000)
+      setTimeout(() => output(`<audio controls class="w-full"><source src="./message-vocal-01.mpeg" type="audio/mpeg"></audio>`), 4000)
+      setTimeout(() => output(`<audio controls class="w-full"><source src="./message-vocal-02.mpeg" type="audio/mpeg"></audio>`), 4000)
+      setTimeout(() => output(`<audio controls class="w-full"><source src="./message-vocal-03.mp3" type="audio/mpeg"></audio>`), 4000)
       setTimeout(() => output('Qu’en pensez-vous ?'), 6000)
       setTimeout(() => button.classList.remove('hidden'), 6100)
       break
