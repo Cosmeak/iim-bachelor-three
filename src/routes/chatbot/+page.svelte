@@ -29,7 +29,7 @@ const output = (outputString) => {
   `
 }
 
-let step = 0
+let step = 27
 let radioChoice = false
 const next = () => {
   const button = document.getElementById('next')
@@ -105,7 +105,7 @@ const next = () => {
     // If false in last case
     case 7.1:
       step = 6.2
-      input(`<img src="./logo.png" class="w-12 h-12">`)
+      input(`<img src="./logo.png" class="w-12 h-12 object-contain">`)
       setTimeout(() => output('Il me semble qu’un QR code s’est caché dans cette affiche !'), 2000)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
@@ -205,7 +205,7 @@ const next = () => {
       setTimeout(() => button.classList.remove('hidden'), 4100)
       break
     case 21: 
-      input(`<img src="./logo.png" class="w-12 h-12">`)
+      input(`<img src="./digital_print.png" class="w-12 h-12 object-contain">`)
       setTimeout(() => button.classList.remove('hidden'), 2100)
       break
     case 22:
@@ -222,7 +222,7 @@ const next = () => {
     case 24:
       input('Est-ce que vos recherches vous ont permis de découvrir quelque chose ?')
       setTimeout(() => output('J’ai retrouvé une conversation que nous avons eue hier avec mes collègues sur le groupe IIM Chat.'), 2000)
-      setTimeout(() => output(`<img src="./logo.png" class="w-12 h-12">`), 3000)
+      setTimeout(() => output(`<img src="./conversation-IIM-chat.png" class="w-12 h-12 object-contain">`), 3000)
       setTimeout(() => button.classList.remove('hidden'), 3100)
       break
     case 25:
@@ -245,9 +245,9 @@ const next = () => {
     case 28:
       input('Envoyez-moi ce que vous avez trouvé !')
       setTimeout(() => output('Il s’agit de messages vocaux qui ont visiblement été volontairement brouillés.'), 2000)
-      setTimeout(() => output('Vocal 1'), 4000)
-      setTimeout(() => output('Vocal 2'), 4000)
-      setTimeout(() => output('Vocal 3'), 4000)
+      setTimeout(() => output(`<audio controls><source src="./message-vocal-01.mpeg" type="audio/mpeg"></audio>`), 4000)
+      setTimeout(() => output(`<audio controls><source src="./message-vocal-02.mpeg" type="audio/mpeg"></audio>`), 4000)
+      setTimeout(() => output(`<audio controls><source src="./message-vocal-03.mp3" type="audio/mpeg"></audio>`), 4000)
       setTimeout(() => output('Qu’en pensez-vous ?'), 6000)
       setTimeout(() => button.classList.remove('hidden'), 6100)
       break
