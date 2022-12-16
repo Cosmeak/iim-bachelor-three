@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tous les produits</title>
+</head>
+<body>
+	<main class="container">
+		{% for product in products %}
+			<div class="card">
+				<img src="{{ product.image }}" alt="{{ product.name }}" class="card-img">
+				<div class="card-text">
+					<h2 class="card-title">{{ product.name }}</h2>
+					<a href="{% url 'show' product.id %}" class="stretched-link">Voir plus</a>
+				</div>
+			</div>
+		{% endfor %}
+	</main>
+</body>
+</html>
