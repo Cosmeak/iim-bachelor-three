@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Tous les produits</title>
-</head>
-<body>
-	<main class="container">
+{% extends "base_generic.html" %}
+
+{% block title %}
+	Tous les produits
+{% endblock %}
+
+{% block content %}
+	<main class="card-container">
 		{% for product in products %}
 			<div class="card">
 				<img src="{{ product.image }}" alt="{{ product.name }}" class="card-img">
@@ -18,5 +16,4 @@
 			</div>
 		{% endfor %}
 	</main>
-</body>
-</html>
+{% endblock %}

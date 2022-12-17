@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Product
+from .forms import ProductForm
 
 
 def index(request):
@@ -13,12 +14,17 @@ def index(request):
 def create(request):
 	"""Display form to create a new product
 	"""
-	return render(request, 'form.html')
+	return render(request, 'form.html', {
+		'form': ProductForm
+	})
 
 
 def store(request):
 	"""Store in database the new product send by form in create function
 	"""
+	form = ProductForm(request.POST)
+	if form.is_valid():
+		form.save()
 	return redirect(index)
 
 
@@ -33,15 +39,19 @@ def show(request, id:int):
 def edit(request, id:int):
 	"""Show edit form for a specific product
 	"""
+	product = Product.objects.get(id=id)
 	return render(request, 'form.html', {
-		'product': Product.objects.get(id=id)
+		'form': ProductForm(product),
+		'product': product
 	})
 
 
 def update(request, id:int):
 	"""Update in database a specific product send with the edit form
 	"""
-	return redirect(index)
+	product = Product.objects.get(id=id)
+	form = ProductForm(request.POST)
+	return redirect(show, args=(product.id))
 
 
 def delete(request, id:int):

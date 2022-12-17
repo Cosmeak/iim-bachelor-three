@@ -1,12 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>{% if product %} Ajout d'un produit {% else %} Edition de {{ product.name }} {% endif %}</title>
-</head>
-<body>
-	
-</body>
-</html>
+{% extends "base_generic.html" %}
+
+{% block title %}
+	{% if product %} 
+		Ajout d'un produit 
+	{% else %} 
+		Edition de {{ product.name }} 
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<main class="container center h-screen">
+		<form action="{% url 'store' %}" method="post" class="card">
+			{% csrf_token %}
+			<table>
+				{% for field in form %}
+					<tr class="form-div">
+						<td>
+							{{ field.label_tag }}
+						</td>
+						<td>
+							{{ field }}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{{ field.errors }}
+						</td>
+					</tr>
+				{% endfor %}
+
+				<tr>
+					<td>
+						<input type="submit" value="Enregistrer">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</main>
+{% endblock %}
