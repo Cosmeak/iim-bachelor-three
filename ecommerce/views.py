@@ -41,7 +41,7 @@ def edit(request, id:int):
 	"""
 	product = Product.objects.get(id=id)
 	return render(request, 'form.html', {
-		'form': ProductForm(product),
+		'form': ProductForm(instance=product),
 		'product': product
 	})
 
@@ -50,12 +50,14 @@ def update(request, id:int):
 	"""Update in database a specific product send with the edit form
 	"""
 	product = Product.objects.get(id=id)
-	form = ProductForm(request.POST)
-	return redirect(show, args=(product.id))
+	form = ProductForm(request.POST, instance=product)
+	if form.is_valid():
+		form.save()
+	return redirect(show, id=id)
 
 
 def delete(request, id:int):
 	"""Delete a product from the database with his id
 	"""
-	Product.objects.delete(id=id)
+	Product.objects.get(id=id).delete()
 	return redirect(index)
