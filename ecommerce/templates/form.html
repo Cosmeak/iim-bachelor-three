@@ -10,7 +10,11 @@
 
 {% block content %}
 	<main class="container center h-screen">
-		<form action="{% url 'store' %}" method="post" class="card">
+		<form 
+			{% if product %} action="{% url 'update' product.id %}" {% else %} action="{% url 'store' %}" {% endif %}
+			method="post" 
+			class="card"
+		>
 			{% csrf_token %}
 			<table>
 				{% for field in form %}
