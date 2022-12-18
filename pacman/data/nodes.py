@@ -1,6 +1,6 @@
 from .node import Node
 from constants import *
-import numpy as np
+from numpy import loadtxt
 from random import randint
 
 class NodeGroup:
@@ -23,16 +23,10 @@ class NodeGroup:
 			node.render(screen)
 
 
-	def read_maze_file(self) -> np.ndarray:
+	def read_maze_file(self):
 		"""Read maze file
 		"""
-		return np.loadtxt('maze.txt','<U1')
-
-
-	def generate_maze(self) -> None:
-		"""Unsupported feature.
-		"""
-		pass
+		return loadtxt('maze.txt','<U1')
 
 
 	def construct_tile(self, x, y) -> tuple:

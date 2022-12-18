@@ -1,6 +1,6 @@
 from .entity import Entity
 from random import randint
-from constants import UP, DOWN, LEFT, RIGHT, GHOST, WHITE
+from constants import *
 from .node import Node
 from .vector import Vector2D
 
@@ -12,6 +12,7 @@ class Ghost(Entity):
 		super().__init__(node, GHOST, WHITE)
 		self.points = 200
 		self.goal = Vector2D()
+
 
 	def directions_valid(self):
 		"""Check all possible direction arround the ghost
@@ -33,12 +34,26 @@ class Ghost(Entity):
 		return directions[randint(0, len(directions) - 1)]
 
 
-	def update(self, delta_time):
+	def update(self, delta_time) -> None:
+		"""Update ghost
+		"""
 		self.position += self.directions[self.direction] * self.speed * delta_time
 		self.node = self.target
-		direction = self.random_direction()
+		direction = self.goal_direction(self.directions_valid())
 		if self.target is not self.node:
 			self.direction = direction
 		else:
 			self.target = self.get_new_target(self.direction)
 		self.set_position()
+
+
+	def goal_direction(self, directions):
+		"""Get the goat direction
+		"""
+		distances = []
+		for direction in directions:
+			vector = self.node.position  + self.directions[direction] * TILEWIDTH - self.goal
+			distances.append(vector.magnitude_squared())
+		index = distances.index(min(distances))
+		return directions[index]
+

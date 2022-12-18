@@ -1,5 +1,5 @@
 import pygame as pg
-from constants import PACMAN, YELLOW, UP, DOWN, LEFT, RIGHT, STOP
+from constants import *
 from .node import Node
 from .entity import Entity
 
