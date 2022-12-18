@@ -21,5 +21,3 @@ $ python ./main.py
 - ["Lemaster Tech" video](https://www.youtube.com/watch?v=9H27CimgPsQ)
 
 All functions and classes are write and documented by myself to understand and following PEP8 conventions!
-
-### Made by [Cosmeak](https://github.com/)

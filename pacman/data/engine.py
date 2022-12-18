@@ -1,10 +1,10 @@
 import pygame as pg
 from constants import *
 from .pacman import Pacman
-from.nodes import NodeGroup
+from .nodes import NodeGroup
+from .ghost import Ghost
 
-
-class Engine():
+class Engine:
 	"""Use to represent the game engine
 	"""
 	def __init__(self) -> None:
@@ -26,7 +26,8 @@ class Engine():
 		"""
 		self.set_background()
 		self.nodes = NodeGroup()
-		self.pacman = Pacman(self.nodes.start_node())
+		self.pacman = Pacman(self.nodes.get_start_node())
+		self.ghost = Ghost(self.nodes.get_start_node())
 
 
 	def update(self) -> None:
@@ -34,6 +35,7 @@ class Engine():
 		"""
 		delta_time:float = self.clock.tick(30) / 1000.0
 		self.pacman.update(delta_time)
+		self.ghost.update(delta_time)
 		self.check_events()
 		self.render()
 
@@ -54,6 +56,7 @@ class Engine():
 		self.screen.blit(self.background, (0, 0))
 		self.nodes.render(self.screen)
 		self.pacman.render(self.screen)
+		self.ghost.render(self.screen)
 		pg.display.update()
 
 

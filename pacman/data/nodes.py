@@ -1,8 +1,9 @@
 from .node import Node
 from constants import *
 import numpy as np
+from random import randint
 
-class NodeGroup():
+class NodeGroup:
 	"""Define a group of node
 	"""
 	def __init__(self) -> None:
@@ -99,7 +100,8 @@ class NodeGroup():
 		return self.get_node_from_pixels(x, y)
 	
 	
-	def start_node(self):
-		"""Get a start node for the player
+	def get_start_node(self) -> Node:
+		"""Get a random start node
 		"""
-		return list(self.nodes_lut.values())[0]
+		node_list = list(self.nodes_lut.values())
+		return node_list[randint(0, len(node_list) - 1)]

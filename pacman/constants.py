@@ -22,4 +22,6 @@ DOWN = -1
 LEFT = 2
 RIGHT = -2
 
+# Entity
 PACMAN = 0
+GHOST = 1

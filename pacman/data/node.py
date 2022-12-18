@@ -1,11 +1,11 @@
 import pygame as pg 
-from .vector import Vector2
+from .vector import Vector2D
 from constants import *
 
 
-class Node():
+class Node:
 	def __init__(self, x:int, y:int) -> None:
-		self.position = Vector2(x, y)
+		self.position = Vector2D(x, y)
 		self.neighbors = {
 			UP: None,
 			DOWN: None,

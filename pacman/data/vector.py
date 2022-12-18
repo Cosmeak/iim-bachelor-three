@@ -1,8 +1,8 @@
 import math
 
 
-class Vector2():
-	"""Used to represent a vector
+class Vector2D:
+	"""Used to represent a 2D vector
 	"""
 	def __init__(self, x=0, y=0) -> None:
 		self.x = x
@@ -52,7 +52,7 @@ class Vector2():
 		return None
 
 
-	def __equal__(self, other) -> bool:
+	def __eq__(self, other) -> bool:
 		"""Check if two vector are equals
 		"""
 		if abs(self.x - other.x) < self.thresh and abs(self.y - other.y) < self.thresh:
@@ -75,7 +75,7 @@ class Vector2():
 	def copy(self):
 		"""Return a copy of itself
 		"""
-		return Vector2(self.x, self.y)
+		return Vector2D(self.x, self.y)
 
 
 	def as_tuple(self) -> tuple:
