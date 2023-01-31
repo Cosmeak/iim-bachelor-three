@@ -1,12 +1,12 @@
 import React from 'react';
 
-const singleBooster = () => {
+const SingleBooster = () => {
     return (
         <div>
-            <h1>Single booster</h1>
+            <h1>testing</h1>
 
         </div>
     );
 };
 
-export default singleBooster;
+export default SingleBooster;
