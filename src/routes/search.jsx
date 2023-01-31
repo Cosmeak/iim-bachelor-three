@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import pokemon from "pokemontcgsdk";
 import AppLayout from "../layouts/appLayout.jsx";
 import Card from "../components/card.jsx";
@@ -8,7 +8,7 @@ const Search = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const res = await pokemon.card.where({ q: 'name:' + event.target[0].value });
-    setCards(res.data);
+    setCards(res.count ? res.data : null);
     document.getElementsByTagName('form')[0].reset();
   };
 
@@ -21,8 +21,8 @@ const Search = () => {
 
         <div className="container my-4 p-4 bg-pokeball-white rounded mx-auto grid gap-8 grid-cols-4 grid-rows-1">
           {cards && cards.length > 0 ? cards.map((card) => (
-            <Card pokemon={card} />
-          )) : 'Aucunes cartes'}
+            <Card key={card.id} pokemon={card} />
+          )) : (<p className="mx-auto text-center col-span-full">Aucunes cartes trouvés</p>)}
         </div>
     </AppLayout>
   );

@@ -1,7 +1,7 @@
 export default function Root() {
   return (
    <>
-     <header className="bg-pokeball-black shadow-lg sticky top-0">
+     <header className="bg-pokeball-black shadow-lg sticky top-0 z-10">
        <nav className="flex justify-center">
          <ul className="flex justify-center items-center gap-2 my-2">
            <li className="bg-pokeball-red rounded px-2 py-1 text-pokeball-white">
