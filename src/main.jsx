@@ -11,11 +11,13 @@ import Root from "./routes/root.jsx";
 import ErrorPage from "./error-page.jsx";
 import Search from "./routes/search.jsx";
 import Booster from "./routes/booster.jsx";
+import SingleBooster from "./routes/singlebooster.jsx";
 
 const router = createBrowserRouter([
   { path: '/', element: <Root />, errorElement: <ErrorPage />},
   { path: '/search', element: <Search />, errorElement: <ErrorPage />},
-  { path: '/booster', element: <Booster />, errorElement: <ErrorPage />},
+  { path: '/booster', element: <Booster />, errorElement: <ErrorPage /> },
+  { path: '/singleBooster', element: <SingleBooster />, errorElement: <ErrorPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
