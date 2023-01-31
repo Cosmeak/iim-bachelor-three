@@ -9,6 +9,9 @@ export default function Root() {
          <li className="bg-amber-100 rounded px-2 py-1">
            <a href={'/search'}>Search for a pokemon ?</a>
          </li>
+         <li>
+          <a href={'/booster'}>Search Booster</a>
+         </li>
        </ul>
      </nav>
    </>
