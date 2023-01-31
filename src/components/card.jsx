@@ -10,7 +10,7 @@ const Card = () => {
         });
     }, []);
 
-    return card ? <img src={card.images.small} alt={card.name} /> : null;
+    return card ? <img src={card.images.small} alt={card.name} /> : <p>No card found</p>;
 };
 
 export default Card;
