@@ -11,7 +11,7 @@ const Booster = () => {
         });
     }, []);
 
-    pokemon.card.all({ q: 'set.name:generations subtypes:mega' })
+    pokemon.card.all({ q: 'set.name:generations' })
         .then(result => {
             console.log(result.data[0].name) // "Venusaur"
         })
@@ -23,7 +23,7 @@ const Booster = () => {
                     <h2>{booster.name}</h2>
                     <h1>{booster.id}</h1>
                     <img src={booster.images.logo} alt={booster.name} />
-                    <a href={`/singleBooster/:booster.id`}>See all cards</a>
+                    <a href={'/singleBooster/'+ booster.id}>See all cards</a>
                 </div>
             ))}
         </div>

@@ -17,7 +17,7 @@ const router = createBrowserRouter([
   { path: '/', element: <Root />, errorElement: <ErrorPage />},
   { path: '/search', element: <Search />, errorElement: <ErrorPage />},
   { path: '/booster', element: <Booster />, errorElement: <ErrorPage /> },
-  { path: '/singleBooster', element: <SingleBooster />, errorElement: <ErrorPage /> },
+  { path: '/singleBooster/:boosterId', element: <SingleBooster />, errorElement: <ErrorPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

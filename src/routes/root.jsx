@@ -12,9 +12,6 @@ export default function Root() {
           <li className="bg-amber-100 rounded px-2 py-1">
             <a href={'/booster'}>Search Booster</a>
           </li>
-          <li className="bg-amber-100 rounded px-2 py-1">
-            <a href={'/singleBooster'}>single Booster</a>
-          </li>
         </ul>
       </nav>
     </>
