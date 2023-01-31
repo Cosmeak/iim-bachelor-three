@@ -5,11 +5,14 @@ const SearchBar = () => {
     const [card, setCard] = useState(null);
     const [searchTerm, setSearchTerm] = useState("");
 
+    console.log(searchTerm)
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const results = await pokemon.card.where({ name: searchTerm });
-        setCard(results[0]);
-        console.log(results);
+        const results = await pokemon.card.where({ q: 'name:' + searchTerm })
+        setCard(results[0])
+        console.log('here')
+        console.log(results.data[0].name)
+        console.log(results)
     };
 
     return (
