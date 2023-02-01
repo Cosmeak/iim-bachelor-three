@@ -12,6 +12,7 @@ module.exports = {
           black: '#000000',
           gray: '#DFDFDF',
           white: '#FFFFFF',
+          blue : '#1B1BFB',
         },
         type: {
           normal: '#A8A77A',

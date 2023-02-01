@@ -24,7 +24,8 @@ const Index = () => {
                         <h2>{booster.name}</h2>
                         <h1>{booster.id}</h1>
                         <img className="justify-center max-w-clip max-w-{150px}" src={booster.images.logo} alt={booster.name} />
-                        <a className="bg-pokeball-red p-2 rounded-lg text-pokeball-white" href={'/booster/'+ booster.id}>See all cards</a>
+                        <a className="bg-pokeball-red p-2 rounded-lg text-pokeball-white" href={'/booster/' + booster.id}>See all cards</a>
+                        <a className="bg-pokeball-blue p-2 rounded-lg text-pokeball-white" href={'/opening/' + booster.id}>Open a booster</a>
                     </div>
                 ))}
             </div>

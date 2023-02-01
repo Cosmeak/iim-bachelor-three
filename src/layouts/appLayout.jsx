@@ -19,9 +19,6 @@ const AppLayout = ({ children }) => {
             <li className="hover:underline">
               <a href={'/booster'}>Boosters</a>
             </li>
-            <li className="hover:underline">
-              <a href={'/opening'}>Opening</a>
-            </li>
           </ul>
 
         </nav>
