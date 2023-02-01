@@ -4,8 +4,7 @@ import { Route, useParams } from "react-router-dom";
 import AppLayout from "../layouts/appLayout.jsx";
 import Card from "../components/card";
 
-
-const SingleBooster = () => {
+const Show = () => {
     const [cards, setcards] = useState();
 
     const params = useParams();
@@ -31,4 +30,4 @@ const SingleBooster = () => {
 }
 
 
-export default SingleBooster;
+export default Show;

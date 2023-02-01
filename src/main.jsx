@@ -8,18 +8,18 @@ import pokemon from 'pokemontcgsdk';
 pokemon.configure({apiKey: import.meta.env.POKEMON_TCG_KEY});
 
 import ErrorPage from "./error-page.jsx";
-import Tcg from "./routes/tcg.jsx";
-import Index from "./routes/index.jsx";
-import Booster from "./routes/booster.jsx";
-import SingleBooster from "./routes/singleBooster.jsx";
-import Opening from './routes/opening';
+import { default as TCGIndex } from "./pages/tcg/index.jsx";
+import Index from "./pages/index.jsx";
+import { default as BoosterIndex } from "./pages/booster/index.jsx" ;
+import { default as BoosterShow } from "./pages/booster/show.jsx";
+import { default as BoosterOpening } from './pages/booster/opening.jsx';
 
 const router = createBrowserRouter([
   { path: '/', element: <Index />, errorElement: <ErrorPage />},
-  { path: '/tcg', element: <Tcg />, errorElement: <ErrorPage />},
-  { path: '/booster', element: <Booster />, errorElement: <ErrorPage /> },
-  { path: '/singleBooster/:boosterId', element: <SingleBooster />, errorElement: <ErrorPage /> },
-  { path: '/opening', element: <Opening />, errorElement: <ErrorPage /> },
+  { path: '/tcg', element: <TCGIndex />, errorElement: <ErrorPage />},
+  { path: '/booster', element: <BoosterIndex />, errorElement: <ErrorPage /> },
+  { path: '/booster/:boosterId', element: <BoosterShow />, errorElement: <ErrorPage /> },
+  { path: '/booster/:boosterId/opening', element: <BoosterOpening />, errorElement: <ErrorPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

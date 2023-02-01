@@ -1,7 +1,7 @@
 const AppLayout = ({ children }) => {
   return (
     <div className="w-screen font-rubik">
-      <header className="container left-1/2 -translate-x-1/2 fixed top-4 z-10 bg-pokeball-black/50 shadow-xl backdrop-blur-lg p-2 rounded-lg">
+      <header className="container left-1/2 right-1/2 -translate-x-1/2 fixed top-4 z-10 bg-pokeball-black/50 shadow-xl backdrop-blur-lg p-2 rounded-lg">
         <nav className="h-full flex justify-between mx-auto px-8">
 
           <div className="h-full flex items-center gap-2 text-lg">
