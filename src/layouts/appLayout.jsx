@@ -5,7 +5,7 @@ const AppLayout = ({ children }) => {
         <nav className="h-full flex justify-between mx-auto px-8">
 
           <div className="h-full flex items-center gap-2 text-lg">
-            <img src="/assets/pokeball.png" className="h-[40px] my-auto object-contain" />
+            <img src="/assets/pokeball.png" className="h-[40px] my-auto object-contain animate-bounce" />
             <p className="text-pokeball-white font-semibold text-xl">Pokemon Center</p>
           </div>
 
