@@ -20,6 +20,9 @@ const Show = () => {
 
     return (
         <AppLayout>
+            <div>
+                <img src="/assets/pokeball.png" />
+            </div>
             <div className="container mx-auto mt-24 grid gap-4 grid-cols-4">
                 {cards && cards.length > 0 ? cards.map((card) => (
                     <Card key={card.id} pokemon={card} />

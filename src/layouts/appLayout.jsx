@@ -1,6 +1,6 @@
 const AppLayout = ({ children }) => {
   return (
-    <div className="w-screen font-rubik" style={{backgroundImage: "url('/assets/banner.png')"}}>
+    <div className="w-screen min-h-screen font-rubik" style={{backgroundImage: "url('/assets/banner.png')"}}>
       <header className="container left-1/2 right-1/2 -translate-x-1/2 fixed top-4 z-10 bg-pokeball-black/50 shadow-xl backdrop-blur-lg p-2 rounded-lg">
         <nav className="h-full flex justify-between mx-auto px-8">
 
