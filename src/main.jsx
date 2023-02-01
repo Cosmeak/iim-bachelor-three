@@ -15,7 +15,7 @@ import SingleBooster from "./routes/singleBooster.jsx";
 
 const router = createBrowserRouter([
   { path: '/', element: <Index />, errorElement: <ErrorPage />},
-  { path: '/search', element: <Tcg />, errorElement: <ErrorPage />},
+  { path: '/tcg', element: <Tcg />, errorElement: <ErrorPage />},
   { path: '/booster', element: <Booster />, errorElement: <ErrorPage /> },
   { path: '/singleBooster/:boosterId', element: <SingleBooster />, errorElement: <ErrorPage /> },
 ]);
