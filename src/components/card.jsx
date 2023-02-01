@@ -6,7 +6,7 @@ const Card = ({ pokemon }) => {
     y: 0,
   });
 
-  const friction = 1/24;
+  const friction = 1/18;
 
   const getHolo = () => {
     //
