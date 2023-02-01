@@ -8,16 +8,16 @@ import pokemon from 'pokemontcgsdk';
 pokemon.configure({apiKey: import.meta.env.POKEMON_TCG_KEY});
 
 import ErrorPage from "./error-page.jsx";
-import Tcg from "./routes/tcg.jsx";
-import Index from "./routes/index.jsx";
-import Booster from "./routes/booster.jsx";
-import SingleBooster from "./routes/singleBooster.jsx";
+import Tcg from "./pages/tcg.jsx";
+import Index from "./pages/index.jsx";
+import { default as BoosterIndex } from "./pages/booster/index.jsx" ;
+import { default as BoosterShow } from "./pages/booster/show.jsx";
 
 const router = createBrowserRouter([
   { path: '/', element: <Index />, errorElement: <ErrorPage />},
   { path: '/tcg', element: <Tcg />, errorElement: <ErrorPage />},
-  { path: '/booster', element: <Booster />, errorElement: <ErrorPage /> },
-  { path: '/singleBooster/:boosterId', element: <SingleBooster />, errorElement: <ErrorPage /> },
+  { path: '/booster', element: <BoosterIndex />, errorElement: <ErrorPage /> },
+  { path: '/booster/:boosterId', element: <BoosterShow />, errorElement: <ErrorPage /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -3,7 +3,7 @@ import pokemon from "pokemontcgsdk";
 import { Route, useParams } from "react-router-dom";
 
 
-const SingleBooster = () => {
+const Show = () => {
 
         const params = useParams();
     
@@ -13,4 +13,4 @@ const SingleBooster = () => {
     }
 
 
-export default SingleBooster;
+export default Show;

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import AppLayout from "../layouts/appLayout.jsx";
+import AppLayout from "../../layouts/appLayout.jsx";
 import pokemon from "pokemontcgsdk";
 
-const Booster = () => {
+const Index = () => {
     const [boosters, setBoosters] = useState([]);
 
     useEffect(() => {
@@ -24,11 +24,11 @@ const Booster = () => {
                     <h2>{booster.name}</h2>
                     <h1>{booster.id}</h1>
                     <img src={booster.images.logo} alt={booster.name} />
-                    <a href={'/singleBooster/'+ booster.id}>See all cards</a>
+                    <a href={'/booster/'+ booster.id}>See all cards</a>
                 </div>
             ))}
         </div>
       </AppLayout>
     );
 };
-export default Booster;
+export default Index;
