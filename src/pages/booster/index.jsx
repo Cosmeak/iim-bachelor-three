@@ -21,7 +21,7 @@ const Index = () => {
             <div className="container mx-auto pt-24 grid grid-cols-4 gap-4">
                 {boosters.map(booster => (
                     <div className="shadow-lg bg-pokeball-black/50 backdrop-blur-sm rounded h-[400px] p-4 relative" key={booster.code}>
-                        <h2 className="text-center">{booster.name}</h2>
+                        <h2 className="text-center text-pokeball-white">{booster.name}</h2>
 
                         <div className="h-4/5 w-2/3 mx-auto flex justify-center items-center my-auto">
                           <img className="object-contain w-full h-full" src={booster.images.logo} alt={booster.name} />
