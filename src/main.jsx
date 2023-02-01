@@ -7,12 +7,12 @@ import './index.css';
 import pokemon from 'pokemontcgsdk';
 pokemon.configure({apiKey: import.meta.env.POKEMON_TCG_KEY});
 
-import Root from "./routes/root.jsx";
 import ErrorPage from "./error-page.jsx";
 import Search from "./routes/search.jsx";
+import Index from "./routes/index.jsx";
 
 const router = createBrowserRouter([
-  { path: '/', element: <Root />, errorElement: <ErrorPage />},
+  { path: '/', element: <Index />, errorElement: <ErrorPage />},
   { path: '/search', element: <Search />, errorElement: <ErrorPage />},
 ]);
 

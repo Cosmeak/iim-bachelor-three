@@ -10,7 +10,7 @@ const Card = ({ pokemon }) => {
 
   const getHolo = () => {
     //
-  }
+  };
 
   const handleMouseMove = (event) => {
     let x = offset.x + (-offset.x - (window.innerWidth / 2 - event.clientX) * friction);
@@ -37,10 +37,11 @@ const Card = ({ pokemon }) => {
         className="
           w-full
           h-full
-          rounded-lg
+          rounded-xl
           transform-x-1/2
           transform-y-1/2
           -z-10
+          shadow-xl
         "
       />
     </div>

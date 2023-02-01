@@ -34,6 +34,9 @@ module.exports = {
           fairy: '#D685AD',
         },
       },
+      fontFamily: {
+        'rubik': 'Rubik'
+      }
     },
   },
   plugins: [],
