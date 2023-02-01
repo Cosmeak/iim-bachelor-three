@@ -8,12 +8,12 @@ import pokemon from 'pokemontcgsdk';
 pokemon.configure({apiKey: import.meta.env.POKEMON_TCG_KEY});
 
 import ErrorPage from "./error-page.jsx";
-import Search from "./routes/search.jsx";
+import Tcg from "./routes/tcg.jsx";
 import Index from "./routes/index.jsx";
 
 const router = createBrowserRouter([
   { path: '/', element: <Index />, errorElement: <ErrorPage />},
-  { path: '/search', element: <Search />, errorElement: <ErrorPage />},
+  { path: '/search', element: <Tcg />, errorElement: <ErrorPage />},
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

@@ -14,10 +14,10 @@ const AppLayout = ({ children }) => {
               <a href={'/'}>Home</a>
             </li>
             <li className="hover:underline">
-              <a href={'/search'}>TCG</a>
+              <a href={'/tcg'}>TCG</a>
             </li>
             <li className="hover:underline">
-              <a >Boosters</a>
+              <a href={'/booster'}>Boosters</a>
             </li>
           </ul>
 
