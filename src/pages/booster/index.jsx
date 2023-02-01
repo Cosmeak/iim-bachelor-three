@@ -18,14 +18,17 @@ const Index = () => {
 
     return (
         <AppLayout>
-            <div className="mt-50">
+            <div className="container mx-auto pt-24 grid grid-cols-4 gap-4">
                 {boosters.map(booster => (
-                    <div className="container mx-auto border max-w-screen-md rounded-3xl p-2 text-center justify-center align-middle" key={booster.code}>
-                        <h2>{booster.name}</h2>
-                        <h1>{booster.id}</h1>
-                        <img className="justify-center max-w-clip max-w-{150px}" src={booster.images.logo} alt={booster.name} />
-                        <a className="bg-pokeball-red p-2 rounded-lg text-pokeball-white" href={'/booster/' + booster.id}>See all cards</a>
-                        <a className="bg-pokeball-blue p-2 rounded-lg text-pokeball-white" href={'/opening/' + booster.id}>Open a booster</a>
+                    <div className="shadow-lg bg-pokeball-black/50 backdrop-blur-sm rounded h-[400px] p-4 relative" key={booster.code}>
+                        <h2 className="text-center">{booster.name}</h2>
+
+                        <div className="h-4/5 w-2/3 mx-auto flex justify-center items-center my-auto">
+                          <img className="object-contain w-full h-full" src={booster.images.logo} alt={booster.name} />
+                        </div>
+
+                      <a className="bg-pokeball-black/75 px-2 py-1 rounded text-pokeball-white absolute bottom-2 left-2 text-sm" href={'/booster/'+ booster.id}>See cards</a>
+                      <a className="bg-pokeball-black/75 px-2 py-1 rounded text-pokeball-white absolute bottom-2 right-2 text-sm" href={'/booster/'+ booster.id}>Open booster</a>
                     </div>
                 ))}
             </div>
