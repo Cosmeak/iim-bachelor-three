@@ -1,19 +1,33 @@
 import React, { useState, useEffect } from "react";
 import pokemon from "pokemontcgsdk";
 import { Route, useParams } from "react-router-dom";
+import AppLayout from "../layouts/appLayout.jsx";
+import Card from "../components/card";
 
 
 const SingleBooster = () => {
+    const [cards, setcards] = useState();
 
     const params = useParams();
-    console.log(params['boosterId']);
 
-    pokemon.card.all({ q: 'set.id:' + params['boosterId'] }).then(result => {
-        console.log('result:')
-        console.log(result) // "Venusaur"
-    })
+    useEffect(() => {
+        fetchBoosterCards()
+    }, []); 
 
-    return <h2> {params.boosterId}</h2>;
+    const fetchBoosterCards = async () => {
+        const response = await pokemon.card.all({ q: 'set.id:' + params['boosterId'] });
+        setcards(response);
+    }
+
+    return (
+        <AppLayout>
+            <div className="container mx-auto mt-24 grid gap-4 grid-cols-4">
+                {cards && cards.length > 0 ? cards.map((card) => (
+                    <Card key={card.id} pokemon={card} />
+                )) : (<p className="mx-auto text-center col-span-full">No card found... 😢</p>)}
+            </div>
+        </AppLayout>
+    );
 }
 
 
