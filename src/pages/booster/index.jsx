@@ -29,7 +29,7 @@ const Index = () => {
 
                       <a className="bg-pokeball-black/75 px-2 py-1 rounded text-pokeball-white absolute bottom-2 left-2 text-sm" href={'/booster/'+ booster.id}>See cards</a>
                       <a className="bg-pokeball-black/75 px-2 py-1 rounded text-pokeball-white absolute bottom-2 right-2 text-sm" href={'/booster/'+ booster.id}>Open booster</a>
-                    </div>
+                    </div>  
                 ))}
             </div>
         </AppLayout>
