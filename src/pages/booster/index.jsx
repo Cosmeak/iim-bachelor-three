@@ -13,22 +13,22 @@ const Index = () => {
 
     pokemon.card.all({ q: 'set.name:generations' })
         .then(result => {
-            console.log(result.data[0].name) // "Venusaur"
+            console.log(result.data[0].name)
         })
-    
+
     return (
-      <AppLayout>
-        <div>
-            {boosters.map(booster => (
-                <div className="set" key={booster.code}>
-                    <h2>{booster.name}</h2>
-                    <h1>{booster.id}</h1>
-                    <img src={booster.images.logo} alt={booster.name} />
-                    <a href={'/booster/'+ booster.id}>See all cards</a>
-                </div>
-            ))}
-        </div>
-      </AppLayout>
+        <AppLayout>
+            <div className="mt-50">
+                {boosters.map(booster => (
+                    <div className="container mx-auto border max-w-screen-md rounded-3xl p-2 text-center justify-center align-middle" key={booster.code}>
+                        <h2>{booster.name}</h2>
+                        <h1>{booster.id}</h1>
+                        <img className="justify-center max-w-clip max-w-{150px}" src={booster.images.logo} alt={booster.name} />
+                        <a className="bg-pokeball-red p-2 rounded-lg text-pokeball-white" href={'/booster/'+ booster.id}>See all cards</a>
+                    </div>
+                ))}
+            </div>
+        </AppLayout>
     );
 };
 export default Index;
