@@ -17,16 +17,8 @@ const opening = () => {
         const randomCardId = Math.floor(Math.random() * (response.length) + 1)
         const randomCard = response[randomCardId]
         cardsBooster.push(randomCard)
-        console.log('Cards Booster:')
-        console.log(cardsBooster)
-        console.log('LENGTH: ' + cardsBooster.length)
-        if (cardsBooster.length <= 5) {
-            useEffect(() => {
-                fetchBoosterCardsRare()
-            }, []);
-        }
+        setcards(cardsBooster)
     }
-
 
     const fetchBoosterCardsRare = async () => {
         const response = await pokemon.card.all({q: 'set.id:' + setId + ' rarity:LEGEND'})
@@ -35,21 +27,24 @@ const opening = () => {
         cardsBooster.push(randomCard)
     }
 
-
     for (let i = 0; i < 6; i++) {
-        console.log(i)
         useEffect(() => {
             fetchBoosterCards()
         }, []);
     }
 
-    console.log('All booster:')
-    console.log(cardsBooster)
+    useEffect(() => {
+        fetchBoosterCardsRare()
+    }, []);
 
         return (
-        <AppLayout>
-            <h1 className="mx-auto mt-10">Opening time</h1>
-        </AppLayout>
+            <AppLayout>
+                <div className="container mx-auto mt-24 grid gap-4 grid-cols-4">
+                    {cards && cards.length > 0 ? cards.map((card) => (
+                        <Card key={card.id} pokemon={card} />
+                    )) : (<p className="mx-auto text-center col-span-full">No card found... 😢</p>)}
+                </div>
+            </AppLayout>
     );
 };
 
