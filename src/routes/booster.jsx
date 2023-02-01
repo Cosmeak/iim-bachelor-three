@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
+import AppLayout from "../layouts/appLayout.jsx";
 import pokemon from "pokemontcgsdk";
-import SearchBar from "./search";
 
 const Booster = () => {
     const [boosters, setBoosters] = useState([]);
@@ -17,6 +17,7 @@ const Booster = () => {
         })
     
     return (
+      <AppLayout>
         <div>
             {boosters.map(booster => (
                 <div className="set" key={booster.code}>
@@ -27,6 +28,7 @@ const Booster = () => {
                 </div>
             ))}
         </div>
+      </AppLayout>
     );
 };
 export default Booster;
