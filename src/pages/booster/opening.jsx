@@ -3,43 +3,34 @@ import pokemon from "pokemontcgsdk";
 import { Route, useParams } from "react-router-dom";
 import AppLayout from "../../layouts/appLayout.jsx";
 import Card from "../../components/card";
+import card from "../../components/card";
 
 const opening = () => {
+    const [booster, setBooster] = useState();
     const [cards, setcards] = useState([]);
     const [loading, setLoading] = useState(false);
 
     const params = useParams();
-    const setId = 'hgss1';
 
-    const fetchBoosterCards = async () => {
-        setLoading(true);
-        const response = await pokemon.card.all({q: 'set.id:' + setId});
-        const randomCardId = Math.floor(Math.random() * (response.length) + 1);
-        const randomCard = response[randomCardId];
-        setcards((prevCards) => [...prevCards, randomCard]);
-        setLoading(false);
+    const randomInt = (max) => {
+        return Math.floor(Math.random() * (max - 1 + 1) + 1)
     };
-    
-    {
-        cards && cards.length > 0 ? cards.map((card) => (
-            <Card key={card.id} pokemon={card} />
-        )) : (<p className="mx-auto text-center col-span-full">No card found... 😢</p>)
-    }
-    const fetchBoosterCardsRare = async () => {
-        const response = await pokemon.card.all({q: 'set.id:' + setId + ' rarity:LEGEND'});
-        const randomCardId = Math.floor(Math.random() * (response.length) + 1);
-        const randomCard = response[randomCardId];
-        setcards((prevCards) => [...prevCards, randomCard]);
+
+    const getData = async () => {
+        const booster = await pokemon.set.find(params.boosterId);
+        setBooster(booster);
+
+        for (let i = 1; i <= 10; i++) {
+            const card = await pokemon.card.find(booster.id + '-' + randomInt(booster.total));
+            setcards((prevCards) => [...prevCards, card]);
+        }
     };
 
     useEffect(() => {
-        for (let i = 0; i < 6; i++) {
-            fetchBoosterCards();
-        }
-        fetchBoosterCardsRare();
+        setLoading(true);
+        getData();
+        setLoading(false);
     }, []);
-
-
 
     return (
         <AppLayout>
