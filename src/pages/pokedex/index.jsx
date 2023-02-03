@@ -1,48 +1,57 @@
 import React, { useState, useEffect } from 'react';
+import Pokecard from '../../components/pokecard.jsx';
+import AppLayout from "../../layouts/appLayout.jsx";
 
-const getPokemonUrl = (id) => {
-    return `https://pokeapi.co/api/v2/pokemon/${id}`;
-}
-
-const fetchAllPokemon = async (id) => {
-    const url = getPokemonUrl(id);
-    const getPokemon = await fetch(url);
-    return getPokemon.json();
-}
+// const getPokemonUrl = (id) => {
+//     return `https://pokeapi.co/api/v2/pokemon/${id}`;
+// }
+//
+// const fetchAllPokemon = async (id) => {
+//     const url = getPokemonUrl(id);
+//     const getPokemon = await fetch(url);
+//     return getPokemon.json();
+// }
 
 const Pokedex = () => {
     const [pokemonList, setPokemonList] = useState([]);
 
+    const getAllPokemons = async () => {
+        let res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0');
+        res = await res.json();
+
+        res.results.forEach(pokemon => {
+            getPokemon(pokemon.url)
+        });
+    };
+
+    const getPokemon = async (url) => {
+        let pokemon = await fetch(url);
+        pokemon = await pokemon.json();
+        setPokemonList(pokemonPrecedent => [...pokemonPrecedent, pokemon]);
+    };
 
     useEffect(() => {
-        let pokemonCount = 500;
-        for (let i = 1; i <= pokemonCount ; i++) {
-            fetchAllPokemon(i).then(resultsPokemon => {
-                setPokemonList(pokemonPrecedent => [...pokemonPrecedent, resultsPokemon]);
-                console.log(resultsPokemon)
-            });;
-        }
+        getAllPokemons();
+        // for (let i = 1; i <= pokemonCount ; i++) {
+        //     fetchAllPokemon(i).then(resultsPokemon => {
+        //         setPokemonList(pokemonPrecedent => [...pokemonPrecedent, resultsPokemon]);
+        //     });
+        // }
     }, []);
 
     return (
-    <div>
+    <AppLayout>
         {pokemonList ? (
-        <ul>
+        <div className="container grid grid-cols-8 gap-4 p-8 pt-24 mx-auto">
             {pokemonList.map(pokemon => (
-            <li key={pokemon.name}>{pokemon.name}
-            <img src={pokemon.sprites.front_default} alt="" />
-                <a  href={'/pokedex/'+ pokemon.id}>voir les stats</a>
-            </li>
-            
+                <Pokecard pokemon={pokemon} key={pokemon.id} />
             ))}
-        </ul>
+        </div>
         ) : (
         <p>y'a rien</p>
         )}
-    </div>
+    </AppLayout>
     );
 }
-
-
 
 export default Pokedex;
