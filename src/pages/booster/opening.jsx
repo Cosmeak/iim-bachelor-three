@@ -34,7 +34,7 @@ const opening = () => {
 
     return (
         <AppLayout>
-            <div className="container mx-auto mt-24 grid gap-4 grid-cols-4">
+            <div className="container mx-auto pt-24 pb-4 p-8 grid gap-4 grid-cols-4">
                 {loading ? (
                     <p className="mx-auto text-center col-span-full">Loading...</p>
                 ) : cards.length > 0 ? (
