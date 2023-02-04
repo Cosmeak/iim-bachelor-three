@@ -12,11 +12,6 @@ const Pokedex = () => {
         res.results.forEach(pokemon => {
             getPokemon(pokemon.url)
         });
-
-        // for (let i = 0; i <= 25; i++) {
-        //     const pokemon = res.results[i];
-        //     getPokemon(pokemon.url);
-        // };
     };
 
     const getPokemon = async (url) => {
@@ -32,7 +27,7 @@ const Pokedex = () => {
     return (
     <AppLayout>
         {pokemonList ? (
-        <div className="container grid grid-cols-4 gap-x-4 gap-y-16 p-8 pt-32 mx-auto">
+        <div className="container grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-16 p-8 pt-32 mx-auto">
             {pokemonList.map(pokemon => (
                 <Pokecard
                     key={pokemon.id} 
