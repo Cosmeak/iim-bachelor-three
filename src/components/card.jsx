@@ -1,10 +1,6 @@
 import React, {useEffect, useState} from "react";
 
 const Card = ({ pokemon }) => {
-  useEffect(() => {
-    console.log(pokemon)
-  }, []);
-
   const [offset, setOffset] = useState({
     x: 0,
     y: 0,

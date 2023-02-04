@@ -11,11 +11,6 @@ const Index = () => {
     });
   }, []);
 
-  pokemon.card.all({q: 'set.name:generations'})
-    .then(result => {
-      console.log(result.data[0].name)
-    })
-
   return (
     <AppLayout>
       <div className="container mx-auto pt-24 grid grid-cols-4 gap-4 p-8">

@@ -17,8 +17,6 @@ const Show = () => {
         fetchPokemon();
     }, []);
 
-    console.log(pokemonStats)
-
     if(pokemonStats){
         return (
             <AppLayout>
