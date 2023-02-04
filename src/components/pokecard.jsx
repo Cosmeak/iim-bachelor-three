@@ -23,9 +23,9 @@ const types = {
 
 const Pokecard = ({ pokemon }) => {
 	return (
-		<div className="rounded-lg h-[180px] p-4 bg-pokeball-white drop-shadow-lg relative flex flex-col justify-center items-center">
-			<div className="absolute translate-1/2 -top-8 sm:-top-12 xl:-top-16 w-1/3">
-				<img src={pokemon.sprites.other.home.front_default} />
+		<div className="rounded-lg h-[180px] p-4 bg-pokeball-white drop-shadow-lg relative flex flex-col justify-center items-center hover:bg-gray-100 hover:border duration-100">
+			<div className="absolute translate-1/2 -top-8 sm:-top-12 xl:-top-16 w-1/3 h-1/3">
+				<img src={pokemon.sprites.other.home.front_default} className="object-contain" />
 			</div>
 
 			<div className="text-center">
@@ -39,6 +39,7 @@ const Pokecard = ({ pokemon }) => {
 					})}
 				</div>
 			</div>
+			<a href={"/pokedex/" + pokemon.id} className="after:absolute after:inset-0"></a>
 		</div>
 	);
 };

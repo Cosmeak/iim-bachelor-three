@@ -27,7 +27,7 @@ const AppLayout = ({ children }) => {
         </nav>
       </header>
 
-      <main>{ children }</main>
+      <main className="container mx-auto p-8 pt-24 ">{ children }</main>
     </div>
   );
 };

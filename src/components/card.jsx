@@ -1,6 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 const Card = ({ pokemon }) => {
+  useEffect(() => {
+    console.log(pokemon)
+  }, []);
+
   const [offset, setOffset] = useState({
     x: 0,
     y: 0,
@@ -29,19 +33,18 @@ const Card = ({ pokemon }) => {
   };
 
   return (
-    <div id={pokemon.id} className="max-w-100 max-h-100 mx-auto">
+    <div id={pokemon.id}>
       <img
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         src={pokemon.images.large}
         className="
-          w-full
-          h-full
           rounded-xl
           transform-x-1/2
           transform-y-1/2
           -z-10
           shadow-xl
+          object-contain
         "
       />
     </div>

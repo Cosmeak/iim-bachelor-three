@@ -29,17 +29,17 @@ Theme is free to choose and we decided to take Pokemon and more exactly TCG (Tra
 ## Our Features
 - [ ] Home page with project explanation
 - TCG
-  - [x] Index (search all card for a Pokemon)  
+  - [x] Index (search all card for a Pokemon)  $ha
 - Boosters
   - [x] Index (all boosters)
   - [x] Show (all cards of a booster)
-  - [ ] Opening (Open a booster pack)
+  - [x] Opening (Open a booster pack)
 - Pokedex
-  - [ ] Index (Search for a Pokemon)
+  - [x] Index (Search for a Pokemon)
   - [ ] Show (View all info for a Pokemon)
 - Composants
   - [ ] Card (Need to show a Pokemon card, with hover effect and holographic effect)
-  - [ ] Pokemon (Show a pokemon with design)
+  - [x] Pokemon (Show a pokemon with design)
 
 ## Technologies
 - React
