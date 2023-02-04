@@ -2,16 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Pokecard from '../../components/pokecard.jsx';
 import AppLayout from "../../layouts/appLayout.jsx";
 
-// const getPokemonUrl = (id) => {
-//     return `https://pokeapi.co/api/v2/pokemon/${id}`;
-// }
-//
-// const fetchAllPokemon = async (id) => {
-//     const url = getPokemonUrl(id);
-//     const getPokemon = await fetch(url);
-//     return getPokemon.json();
-// }
-
 const Pokedex = () => {
     const [pokemonList, setPokemonList] = useState([]);
 
@@ -22,6 +12,11 @@ const Pokedex = () => {
         res.results.forEach(pokemon => {
             getPokemon(pokemon.url)
         });
+
+        // for (let i = 0; i <= 25; i++) {
+        //     const pokemon = res.results[i];
+        //     getPokemon(pokemon.url);
+        // };
     };
 
     const getPokemon = async (url) => {
@@ -32,19 +27,17 @@ const Pokedex = () => {
 
     useEffect(() => {
         getAllPokemons();
-        // for (let i = 1; i <= pokemonCount ; i++) {
-        //     fetchAllPokemon(i).then(resultsPokemon => {
-        //         setPokemonList(pokemonPrecedent => [...pokemonPrecedent, resultsPokemon]);
-        //     });
-        // }
     }, []);
 
     return (
     <AppLayout>
         {pokemonList ? (
-        <div className="container grid grid-cols-8 gap-4 p-8 pt-24 mx-auto">
+        <div className="container grid grid-cols-4 gap-x-4 gap-y-16 p-8 pt-32 mx-auto">
             {pokemonList.map(pokemon => (
-                <Pokecard pokemon={pokemon} key={pokemon.id} />
+                <Pokecard
+                    key={pokemon.id} 
+                    pokemon={pokemon}
+                />
             ))}
         </div>
         ) : (

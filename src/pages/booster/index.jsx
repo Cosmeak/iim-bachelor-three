@@ -18,10 +18,10 @@ const Index = () => {
 
   return (
     <AppLayout>
-      <div className="container mx-auto pt-24 grid grid-cols-4 gap-4">
+      <div className="container mx-auto pt-24 grid grid-cols-4 gap-4 p-8">
         {boosters.map(booster => (
           <div
-            className="shadow-lg bg-pokeball-black/50 backdrop-blur-sm rounded h-[400px] p-4 relative"
+            className="shadow-lg bg-pokeball-white drop-shadow-lg rounded h-[300px] p-4 relative"
             key={booster.code}
           >
             <h2 className="text-center">{booster.name}</h2>
@@ -35,11 +35,11 @@ const Index = () => {
             </div>
 
             <a
-              className="bg-pokeball-black/75 px-2 py-1 rounded text-pokeball-white absolute bottom-2 left-2 text-sm"
+              className="border border-pokeball-black px-2 py-1 rounded absolute bottom-2 left-2 text-sm"
               href={'/booster/' + booster.id}
             >See cards</a>
             <a
-              className="bg-pokeball-black/75 px-2 py-1 rounded text-pokeball-white absolute bottom-2 right-2 text-sm"
+              className="border border-pokeball-black px-2 py-1 rounded absolute bottom-2 right-2 text-sm"
               href={'/booster/' + booster.id + '/opening'}
             >Open booster</a>
           </div>
