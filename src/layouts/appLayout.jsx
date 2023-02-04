@@ -19,6 +19,9 @@ const AppLayout = ({ children }) => {
             <li className="hover:underline">
               <a href={'/booster'}>Boosters</a>
             </li>
+            <li className="hover:underline">
+              <a href={'/pokedex'}>Pokedex</a>
+            </li>
           </ul>
 
         </nav>
