@@ -47,7 +47,7 @@ Theme is free to choose and we decided to take Pokemon and more exactly TCG (Tra
 - TailwindCSS
 - React-Router-DOM
 - Pokemon TCG API
-
+- PokeAPI
 ## Project Setup
 ```bash
 # Install dependencies
