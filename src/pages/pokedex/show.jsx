@@ -211,8 +211,8 @@ const Show = () => {
                                             key={i}  
                                             className={moveClasses[move.type.name]}
                                         >
-                                            <h3 className="capitalize">{move.name}</h3>
-                                            <p className="font-light text-sm mt-1"><span className="underline">Description:</span> {move.flavor_text_entries.find(entry => entry.language.name == 'en').flavor_text ?? 'No text'}</p>
+                                            <h3 className="capitalize">{move.name} - <span className="text-sm font-light">{move.type.name}</span></h3>
+                                            <p className="font-light text-sm mt-1"><span className="underline">Description:</span> {move.flavor_text_entries.find(entry => entry.language.name == 'en')?.flavor_text ?? 'No description'}</p>
                                             <p className="font-light text-sm mt-1"><span className="underline">PP:</span> {move.pp}</p>
                                         </div>
                                     )
