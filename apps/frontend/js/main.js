@@ -8,8 +8,8 @@ input.addEventListener("input", setColor);
 //let list = [{x: 1, y: 1, r: 255, g: 255, b: 255}, {x: 1, y: 2, r: 255, g: 255, b: 255}];
 let list = [];
 
-for (let i = 1; i <= 16; i++) {
-    for (let j = 1; j <= 16; j++) {
+for (let i = 1; i <= 8; i++) {
+    for (let j = 1; j <= 8; j++) {
         list.push({
             x: i,
             y: j,
