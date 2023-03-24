@@ -5,6 +5,21 @@ const colorCode = document.getElementById("colorCode");
 setColor();
 input.addEventListener("input", setColor);
 
+//let list = [{x: 1, y: 1, r: 255, g: 255, b: 255}, {x: 1, y: 2, r: 255, g: 255, b: 255}];
+let list = [];
+
+for (let i = 1; i <= 16; i++) {
+    for (let j = 1; j <= 16; j++) {
+        list.push({
+            x: i,
+            y: j,
+            r: 255,
+            g: 255,
+            b: 255
+        })
+    }
+}
+
 function setColor() {
     body.style.backgroundColor = input.value;
     colorCode.innerHTML = input.value;
@@ -23,9 +38,20 @@ function hexToRgb(hex, x, y) {
 function chooseColor(square) {
     document.getElementById(square).style.backgroundColor = setColor()
 
-    let x = parseInt(square.slice(6, 7), 16)
-    let y = parseInt(square.slice(8, 9), 16)
-    let object = hexToRgb(setColor(), x, y)
+    let coords = square.replace('square', '')
+    let object = hexToRgb(setColor(), parseInt(coords.split('-')[0]), parseInt(coords.split('-')[1]))
 
-    console.log(object)
+    let position = list.findIndex(l => l.x == coords.split('-')[0] && l.y == coords.split('-')[1]);
+    list[position] = object;
+    sendBitmapToApi(list);
+}
+
+async function sendBitmapToApi(bitmap) {
+    const res = await fetch("http://localhost:3000/bitmap", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ bitmap: bitmap }),
+    });
 }
