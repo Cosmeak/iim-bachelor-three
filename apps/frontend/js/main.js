@@ -10,9 +10,6 @@ function setColor() {
     colorCode.innerHTML = input.value;
 
     return input.value
-
-    //console.log(input.value)
-    //console.log(hexToRgb(input.value))
 }
 
 function hexToRgb(hex, x, y) {
