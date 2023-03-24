@@ -1,5 +1,13 @@
-import neopixel, network, urequests, ujson, time
+import neopixel
+import network
+import urequests
+import ujson
+import time
 from machine import Pin
+
+xres= 16
+yres=16
+pin = 28
 
 def mapPixel(x, y):
     if y % 2 == 1:
@@ -7,29 +15,37 @@ def mapPixel(x, y):
     else:
         return xres * y + xres - 1 - x
     
-wall = neopixel.NeoPixel(machine.Pin(28), 16 * 16)
+wall = neopixel.NeoPixel(machine.Pin(pin), xres * yres)
 wall.write()
+
+ssid : 'YOUR SSID'
+password : 'YOUR PSWD'
+
+ip : 'YOUR IP'
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
-wlan.connect("IIM_Private", "Creatvive_Lab_2023")
+wlan.connect(ssid, password)
+
 while not wlan.isconnected():
     print("try to connect...")
-    wlan.connect("IIM_Private", "Creatvive_Lab_2023")
     time.sleep_ms(1000)
-    pass
+    pass	
 
 while True:
     print("Try to get data from API ...")
     try:
-        response = urequests.get("http://localhost:3000/bitmap")
-        response = response.json()
+        print("im here")
+        r = urequests.get("http://"ip":3000/bitmap")
+        print("here")
+        response = r.json()
+        r.close()
         print("Response:", response)
-        for item in response.data.bitmap:
+        for item in response["data"]["bitmap"]:
             target_index = mapPixel(item["x"], item["y"])
             # Définir la couleur de la LED ciblée
             wall[target_index] = (item["r"], item["g"], item["b"])
-        
+
         wall.write()
     except Exception as error:
         print("Error:", error)
