@@ -5,8 +5,8 @@ import ujson
 import time
 from machine import Pin
 
-xres= 16
-yres=16
+xres=8
+yres=8
 pin = 28
 
 def mapPixel(x, y):
@@ -18,10 +18,10 @@ def mapPixel(x, y):
 wall = neopixel.NeoPixel(machine.Pin(pin), xres * yres)
 wall.write()
 
-ssid = 'YOUR SSID'
-password = 'YOUR PSWD'
+ssid = 'Mi_9T'
+password = 'j15a17ph'
 
-ip = 'YOUR IP'
+ip = '192.168.118.147'
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
@@ -36,7 +36,7 @@ while True:
     print("Try to get data from API ...")
     try:
         print("im here")
-        r = urequests.get("http://"ip":3000/bitmap")
+        r = urequests.get("http://" + ip + ":3000/bitmap")
         print("here")
         response = r.json()
         r.close()

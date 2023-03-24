@@ -35,7 +35,7 @@ function hexToRgb(hex, x, y) {
     return { x, y, r, g, b };
 }
 
-function chooseColor(square) {
+async function chooseColor(square) {
     document.getElementById(square).style.backgroundColor = setColor()
 
     let coords = square.replace('square', '')
@@ -43,7 +43,7 @@ function chooseColor(square) {
 
     let position = list.findIndex(l => l.x == coords.split('-')[0] && l.y == coords.split('-')[1]);
     list[position] = object;
-    sendBitmapToApi(list);
+    await sendBitmapToApi(list);
 }
 
 async function sendBitmapToApi(bitmap) {
