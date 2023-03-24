@@ -18,10 +18,10 @@ def mapPixel(x, y):
 wall = neopixel.NeoPixel(machine.Pin(pin), xres * yres)
 wall.write()
 
-ssid : 'YOUR SSID'
-password : 'YOUR PSWD'
+ssid = 'YOUR SSID'
+password = 'YOUR PSWD'
 
-ip : 'YOUR IP'
+ip = 'YOUR IP'
 
 wlan = network.WLAN(network.STA_IF)
 wlan.active(True)
