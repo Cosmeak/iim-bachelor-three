@@ -22,7 +22,7 @@ You can find our code for frontend is `apps/frontend`, our API in `services/api`
 
 ## The result
 
-Place video here
+https://user-images.githubusercontent.com/90453342/227801185-a61323f1-3cad-44d7-8602-04478b47f06d.mp4
 
 
 ## Contributors
