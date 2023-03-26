@@ -1,6 +1,6 @@
 # Creative Technologist
 
-The goals of this project and to understand and discover how objects and the world of the web are connected.
+The goals of this project is to understand and discover how objects and the world of the web are connected.
 
 This is why, we choose to do a little LED board (16x16) and connect it with a front that handle all color choice and send it to an API that our card call every second to check colors data for each LED.
 
