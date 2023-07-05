@@ -9,7 +9,7 @@ composer require cosmeak/os-td3
 ## Usage
 
 ```php  
-use Cosmeak\OS\TD3\Scrapper;
+use Cosmeak\Scrapper\Scrapper;
 
 $scrapper = new Scrapper();
 $data = $scrapper->getLeaderboardByLevel();
