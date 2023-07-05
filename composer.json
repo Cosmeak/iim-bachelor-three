@@ -1,0 +1,17 @@
+{
+    "name": "cosmeak/os-td-2",
+    "type": "library",
+    "autoload": {
+        "psr-4": {
+            "Cosmeak\\Td2\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Cosmeak",
+            "email": "guillaume.fine@cosmeak.dev"
+        }
+    ],
+    "license": "MIT",
+    "require": {}
+}
