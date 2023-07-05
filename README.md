@@ -1,5 +1,7 @@
 # TD3 - Scrapper
 
+A little scrapper of speedrun.com to get the leaderboard of each level of the game The Division 2.
+
 ## Installation
 
 ```bash 
