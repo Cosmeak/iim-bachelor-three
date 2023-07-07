@@ -8,18 +8,17 @@ function generateMarkFromAllStudents(csvLink, markMin = 0, markMax = 20) {
         .on('error', (err) => console.error(err))
         .on('data', (data) => {
             [header, students] = csvToObject(data);
-            console.log("Data Successfully Loaded");
-            console.log("Generating marks...");
+            // console.log("Data Successfully Loaded");
+            // console.log("Generating marks...");
             students.forEach((student) => {
                 student.note = getRandomMark(markMin, markMax);
             });
             averageMark = getAverageMark(students);
-            console.log("Writing marks to file...");
+            // console.log("Writing marks to file...");
             fs.writeFile(csvLink, objectToCsv(header, students) + "\n total:;" + averageMark, () => {});
         })
         .on('end', (data) => {
-            console.log("File successfully written");
-            return [header, students, averageMark];
+            // console.log("File successfully written");
         });
 }
 
