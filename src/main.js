@@ -3,25 +3,24 @@
 import fs from "node:fs";
 
 function generateMarkFromAllStudents(csvLink, markMin = 0, markMax = 20) {
-    let header, students;
+    let header, students, averageMark;
     fs.createReadStream( csvLink, "utf8")
         .on('error', (err) => console.error(err))
         .on('data', (data) => {
             [header, students] = csvToObject(data);
             console.log("Data Successfully Loaded");
             console.log("Generating marks...");
-            console.log(students);
             students.forEach((student) => {
                 student.note = getRandomMark(markMin, markMax);
             });
-            const averageMark = getAverageMark(students);
+            averageMark = getAverageMark(students);
             console.log("Writing marks to file...");
-            fs.writeFile(csvLink, objectToCsv(header, students, ["", "", "", averageMark, ""]), () => {});
+            fs.writeFile(csvLink, objectToCsv(header, students) + "\n total:;" + averageMark, () => {});
         })
         .on('end', (data) => {
             console.log("File successfully written");
+            return [header, students, averageMark];
         });
-    return header, students;
 }
 
 function getRandomMark(min, max) {
@@ -52,7 +51,7 @@ function csvToObject(csv) {
         }
     });
 
-    return header, students;
+    return [header, students];
 }
 
 function objectToCsv(header, students, otherData = []){
@@ -60,14 +59,7 @@ function objectToCsv(header, students, otherData = []){
     const csvStudents = students.map((student) => {
         return Object.values(student).join(";");
     }).join("\n");
-
-    const csvOtherData = otherData.map((data) => {
-        return Object.values(data).join(";");
-    }).join("\n");
-
-    console.log(csvHeader);
-    console.log(csvStudents);
-    return csvHeader + csvStudents + csvOtherData;
+    return csvHeader + csvStudents;
 }
 
 export { generateMarkFromAllStudents };
