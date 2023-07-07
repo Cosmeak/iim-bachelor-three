@@ -1,18 +1,22 @@
 {
-  "name": "@cosmeak/os-td4",
+  "name": "os-td4",
   "version": "1.0.0",
   "description": "",
   "main": "src/main.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "type": "module",
   "author": "Cosmeak",
   "license": "MIT",
-  "devDependencies": {
-    "eslint": "^8.44.0"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Cosmeak/os-td4"
+  },
+  "devDependencies": {
+    "eslint": "^8.44.0",
+    "jest": "^29.6.1"
+  },
+  "scripts": {
+    "test": "node --experimental-vm-modules ./node_modules/.bin/jest",
+    "lint": "eslint src/main.js",
+    "lint:fix" : "eslint --fix src/main.js"
   }
 }
