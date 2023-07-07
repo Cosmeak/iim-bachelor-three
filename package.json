@@ -1,0 +1,18 @@
+{
+  "name": "@cosmeak/os-td4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Cosmeak",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^8.44.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Cosmeak/os-td4"
+  }
+}
