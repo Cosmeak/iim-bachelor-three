@@ -1,0 +1,7 @@
+{
+    "name": "cosmeak/opensourcetd1",
+    "type": "project",
+    "require": {
+        "guzzlehttp/guzzle": "^7.7"
+    }
+}
