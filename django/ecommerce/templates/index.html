@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+	Tous les produits
+{% endblock %}
+
+{% block content %}
+	<main class="card-container">
+		{% for product in products %}
+			<div class="card">
+				<img src="{{ product.image }}" alt="{{ product.name }}" class="card-img">
+				<div class="card-text">
+					<h2 class="card-title">{{ product.name }}</h2>
+					<a href="{% url 'show' product.id %}" class="stretched-link">Voir</a>
+					<a href="{% url 'edit' product.id %}" class="stretched-link">Editer</a>
+					<a href="{% url 'delete' product.id %}" class="stretched-link">Supprimer</a>
+				</div>
+			</div>
+		{% endfor %}
+	</main>
+{% endblock %}

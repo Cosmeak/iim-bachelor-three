@@ -1,0 +1,44 @@
+{% extends "base_generic.html" %}
+
+{% block title %}
+	{% if product %} 
+		Ajout d'un produit 
+	{% else %} 
+		Edition de {{ product.name }} 
+	{% endif %}
+{% endblock %}
+
+{% block content %}
+	<main class="container center h-screen">
+		<form 
+			{% if product %} action="{% url 'update' product.id %}" {% else %} action="{% url 'store' %}" {% endif %}
+			method="post" 
+			class="card"
+		>
+			{% csrf_token %}
+			<table>
+				{% for field in form %}
+					<tr class="form-div">
+						<td>
+							{{ field.label_tag }}
+						</td>
+						<td>
+							{{ field }}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							{{ field.errors }}
+						</td>
+					</tr>
+				{% endfor %}
+
+				<tr>
+					<td>
+						<input type="submit" value="Enregistrer">
+					</td>
+				</tr>
+			</table>
+		</form>
+	</main>
+{% endblock %}
