@@ -1,0 +1,63 @@
+/*Just fancy stuff!!*/
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-size: 3rem;
+    color: black;
+    /* font-family: "Berkshire Swash", cursive; */
+    text-align: center;
+}
+
+input[type="color"] {
+    background-color: #fff;
+    padding: 10px;
+    width: 200px;
+    height: 30px;
+    cursor: pointer;
+    border: 2px solid #000;
+    border-radius: 3px;
+    margin: 20px;
+}
+
+b {
+    background-color: #fff;
+    padding: 16px;
+    font-family: sans-serif;
+}
+
+code {
+    font-size: 1.2rem;
+    background-color: lightslategray;
+    color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+#checker-board {
+    width: 400px;
+    height: 400px;
+    background-color: #ffffff;
+    border: 10px solid rgba(0,0,0,0.65);
+    border-radius: 10px;
+    position: relative;
+}
+
+.square {
+    width: 50px;
+    height: 50px;
+    float: left;
+}
+
+.checker {
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+}
+.black { background-color: black; }
