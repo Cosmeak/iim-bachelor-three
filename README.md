@@ -1,1 +1,0 @@
-# iim-bachelor-3
