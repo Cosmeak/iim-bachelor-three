@@ -9,6 +9,7 @@ const menuController = require('./controllers/menuController')
 const userController = require('./src/controllers/userController')
 const authController = require("./src/controllers/authController")
 const verifToken = require('./src/middlewares/auth')
+const bookingController = require('./src/controllers/bookingController')
 
 // Time logger
 router.use(function timeLog (req, res, next) {
@@ -54,13 +55,13 @@ router.get('/hiddenToken', verifToken, function (req, res) {
     }
 })
 
-// router.get('/logout', function (req, res, next) {
-//     if(req.user.loggedin) {
-//         req.session.loggedin = false
-//         res.redirect('/')
-//     }else{
-//     res.redirect('/')
-//     }
-// })
+// Booking routes
+router.route('/booking')
+    .get(bookingController.index)
+    .post(bookingController.store)
+
+router.route('/booking/:id')
+    .get(bookingController.show)
+    .delete(bookingController.destroy)
 
 module.exports = router
