@@ -5,6 +5,7 @@
   "repository": "git@github.com:Cosmeak/JungleArch-api.git",
   "author": "Cosmeak <guillaumefine09@gmail.com>",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
