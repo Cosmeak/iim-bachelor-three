@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "61941030057",
+    "project_id": "flutter-39327",
+    "storage_bucket": "flutter-39327.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61941030057:android:7947b0a91baf2f16d79db8",
+        "android_client_info": {
+          "package_name": "cosmeak.dev.flutter_cours"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61941030057-ujcbq17g9c602ho5juobaftebkbma87n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo4hJ9O5runGrlYFMviOQAc_QCIf_sYgk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61941030057-ujcbq17g9c602ho5juobaftebkbma87n.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "61941030057-l3nt1civmpigqi7e7aqg4qnmro5hhrj1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "cosmeak.dev.flutterCours.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
