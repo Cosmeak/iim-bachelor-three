@@ -1,0 +1,48 @@
+{
+    "timeslots": [
+        {
+            "startTime": "T12:00:00Z",
+            "endTime": "T13:00:00Z"
+        },
+        {
+            "startTime": "T12:30:00Z",
+            "endTime": "T13:30:00Z"
+        },
+        {
+            "startTime": "T13:00:00Z",
+            "endTime": "T14:00:00Z"
+        },
+        {
+            "startTime": "T13:30:00Z",
+            "endTime": "T14:30:00Z"
+        },
+        {
+            "startTime": "T18:00:00Z",
+            "endTime": "T19:00:00Z"
+        },
+        {
+            "startTime": "T18:30:00Z",
+            "endTime": "T19:30:00Z"
+        },
+        {
+            "startTime": "T19:00:00Z",
+            "endTime": "T20:00:00Z"
+        },
+        {
+            "startTime": "T19:30:00Z",
+            "endTime": "T20:30:00Z"
+        },
+        {
+            "startTime": "T20:00:00Z",
+            "endTime": "T21:00:00Z"
+        },
+        {
+            "startTime": "T20:30:00Z",
+            "endTime": "T21:30:00Z"
+        },
+        {
+            "startTime": "T21:00:00Z",
+            "endTime": "T22:00:00Z"
+        }
+    ]
+}
